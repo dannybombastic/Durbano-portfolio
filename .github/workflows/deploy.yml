@@ -50,7 +50,7 @@ jobs:
         # source to copy from
         source: "dist_dani/*" # optional
         # destination to download on server
-        target: "/var/www/html/dist_dani" # optional
+        target: "/var/www/html/dani" # optional
 
     - name: Execute remote command using ssh template
       uses: cross-the-world/ssh-pipeline@v1.2.0
@@ -64,4 +64,4 @@ jobs:
         # private ssh key registered on the server
         pass: ${{secrets.REMOTE_PASS}}
         # command to be executed
-        script: chmod -R 774 /var/www/html/* ;  cp -r /var/www/html/dist_dani/* /var/www/html/dani ; chown -R www-data:www-data /var/www/html
+        script: chmod -R 774 /var/www/html/* ; chown -R www-data:www-data /var/www/html
