@@ -28,9 +28,7 @@ body {
   color: var(--text-color);
 }
 
-ul {
-  line-height: 1.5; /* Adjust the line height as needed */
-}
+
 
 section {
   min-height: 100vh;
