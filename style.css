@@ -28,7 +28,7 @@ body {
   color: var(--text-color);
 }
 
-li {
+ul {
   line-height: 1.5; /* Adjust the line height as needed */
 }
 
