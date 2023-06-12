@@ -87,6 +87,9 @@ section{
     align-items: center;
 
 }
+ul {
+    line-height: 0;
+}
 
 .home-img img{
     width: 35vw;
