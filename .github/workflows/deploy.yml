@@ -50,7 +50,7 @@ jobs:
         # source to copy from
         source: "dist_dani/*" # optional
         # destination to download on server
-        target: "/var/www/html/dani" # optional
+        target: "/var/www/html/dist_dani" # optional
 
     - name: Execute remote command using ssh template
       uses: cross-the-world/ssh-pipeline@v1.2.0
