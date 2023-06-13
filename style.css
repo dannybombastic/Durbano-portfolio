@@ -512,16 +512,29 @@ span {
 
 }
 
+@media (max-width: 715px){
+    .buttondown{
+    display: none;
+}
+
+}
+
 
 @media (max-width: 617px){
     .portfolio-container{
         grid-template-columns: 1fr;
+    }
+    .buttondown{
+        display: none;
     }
 }
 
 @media (max-width: 450px) {
     html {
         font-size: 50%;
+    }
+    .buttondown{
+        display: none;
     }
 
     .contact form .input-box input {
@@ -533,6 +546,10 @@ span {
 @media (max-width: 365px) {
     .home-img img {
         width: 90vw;
+    }
+    
+    .buttondown{
+        display: none;
     }
 
     .about-img img {
@@ -548,3 +565,4 @@ span {
         margin-top: 2rem;
     }
 }
+
