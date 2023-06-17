@@ -70,23 +70,6 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
-/*==== hover projects====*/
 
 
-$(document).ready(function() {
-    $('.portfolio-box').hover(
-      function() {
-        var imgSrc = $(this).find('img').attr('src');
-        var newImgSrc = 'img/another-image.png'; // Cambia esto por la ruta de la otra imagen que deseas mostrar
-        $(this).find('img').attr('src', newImgSrc);
-        $(this).find('.portfolio-layer').css('background-image', 'url(' + imgSrc + ')');
-      },
-      function() {
-        var imgSrc = $(this).find('.portfolio-layer').css('background-image');
-        var newImgSrc = $(this).find('img').attr('src');
-        $(this).find('img').attr('src', newImgSrc);
-        $(this).find('.portfolio-layer').css('background-image', imgSrc);
-      }
-    );
-  });
-  
+
