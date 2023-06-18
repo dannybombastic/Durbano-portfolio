@@ -570,9 +570,23 @@ span {
     justify-content: center;
     align-items: center;
     text-align: center;
+    
   }
   
   .social-member {
     flex: 1 1 150px;
     margin: 10px;
   }
+
+
+  @media (max-width: 617px){
+    .partecontacto {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+      }
+    }
+    
