@@ -602,3 +602,13 @@ span {
     margin-top: 12rem;
     }
 }
+
+/*Links secccion contact */
+.butonwat {
+    font-size: larger;
+    color: aliceblue;
+}
+
+.butonwat:hover {
+    color: var(--main-color);
+}

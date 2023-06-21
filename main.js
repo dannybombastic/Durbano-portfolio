@@ -72,4 +72,9 @@ const typed = new Typed('.multiple-text', {
 
 
 
+/*==== Cookies ====*/
+
+document.cookie = "nombre_cookie=valor_cookie; expires=Thu, 22 Jun 2023 12:00:00 UTC; path=/; domain=durbanod.com; secure; SameSite=Strict";
+
+
 
