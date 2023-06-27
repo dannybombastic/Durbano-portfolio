@@ -738,4 +738,18 @@ span {
 
 
 
-
+@media (max-width: 767px) {
+    .footer {
+        display: flex;
+        flex-direction: inline;
+    }
+  
+    .footer-text {
+        text-align: left;
+    }
+  
+    .footer-iconTop {
+        margin-left: auto;
+        margin-top: 10px;
+    }
+  }
