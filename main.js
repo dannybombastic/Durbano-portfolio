@@ -76,5 +76,17 @@ const typed = new Typed('.multiple-text', {
 
 document.cookie = "nombre_cookie=valor_cookie; expires=Thu, 22 Jun 2023 12:00:00 UTC; path=/; domain=durbanod.com; secure; SameSite=Strict";
 
+const popupButton = document.getElementById("popup-button");
+const popupOverlay = document.getElementById("popup-overlay");
+const popupContent = document.getElementById("popup-content");
+const closeButton = document.getElementById("close-button");
+
+popupButton.addEventListener("click", function() {
+  popupOverlay.style.display = "block";
+});
+
+closeButton.addEventListener("click", function() {
+  popupOverlay.style.display = "none";
+});
 
 
