@@ -765,9 +765,10 @@ span {
 }
 
 .popup-content {
+    text-align: center;
     position: absolute;
     top: 50%;
-    left: 15%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
     max-width: 90%;
@@ -863,5 +864,9 @@ span {
         left: 50%;
     }
 }
-    
-    
+
+@media screen and (max-width: 767px) {
+    .grid-item1 {
+        margin-bottom: 90px;
+    }
+}
