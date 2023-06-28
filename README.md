@@ -4,3 +4,5 @@
 
 - cambio en la sección de contacto
 - pom pom
+- v.0.0.1 beta
+- - v.0.0.1 trasteala y dime que quieres que cambie
