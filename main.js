@@ -79,17 +79,17 @@ document.cookie = "nombre_cookie=valor_cookie; expires=Thu, 22 Jun 2023 12:00:00
 
 
 /*==== Popup 1====*/
-const popupButton = document.getElementById("popup-button");
-const popupOverlay = document.getElementById("popup-overlay");
-const popupContent = document.getElementById("popup-content");
-const closeButton = document.getElementById("close-button");
+const popupButton3 = document.getElementById("popup-button-3");
+const popupOverlay3 = document.getElementById("popup-overlay-3");
+const popupContent3= document.getElementById("popup-content-3");
+const closeButton3 = document.getElementById("close-button-3");
 
-popupButton.addEventListener("click", function() {
-  popupOverlay.style.display = "block";
+popupButton3.addEventListener("click", function() {
+  popupOverlay3.style.display = "block";
 });
 
-closeButton.addEventListener("click", function() {
-  popupOverlay.style.display = "none";
+closeButton3.addEventListener("click", function() {
+  popupOverlay3.style.display = "none";
 });
 
 
@@ -122,3 +122,4 @@ popupButton2.addEventListener("click", function() {
 closeButton2.addEventListener("click", function() {
   popupOverlay2.style.display = "none";
 });
+
