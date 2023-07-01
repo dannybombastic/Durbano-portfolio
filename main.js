@@ -72,4 +72,54 @@ const typed = new Typed('.multiple-text', {
 
 
 
+/*==== Cookies ====*/
+
+document.cookie = "nombre_cookie=valor_cookie; expires=Thu, 22 Jun 2023 12:00:00 UTC; path=/; domain=durbanod.com; secure; SameSite=Strict";
+
+
+
+/*==== Popup 1====*/
+const popupButton3 = document.getElementById("popup-button-3");
+const popupOverlay3 = document.getElementById("popup-overlay-3");
+const popupContent3= document.getElementById("popup-content-3");
+const closeButton3 = document.getElementById("close-button-3");
+
+popupButton3.addEventListener("click", function() {
+  popupOverlay3.style.display = "block";
+});
+
+closeButton3.addEventListener("click", function() {
+  popupOverlay3.style.display = "none";
+});
+
+
+/*==== Popup 2====*/
+const popupButton1 = document.getElementById("popup-button-1");
+const popupOverlay1 = document.getElementById("popup-overlay-1");
+const popupContent1 = document.getElementById("popup-content-1");
+const closeButton1 = document.getElementById("close-button-1");
+
+popupButton1.addEventListener("click", function() {
+  popupOverlay1.style.display = "block";
+});
+
+closeButton1.addEventListener("click", function() {
+  popupOverlay1.style.display = "none";
+});
+
+
+/*==== Popup 3====*/
+
+const popupButton2 = document.getElementById("popup-button-2");
+const popupOverlay2 = document.getElementById("popup-overlay-2");
+const popupContent2 = document.getElementById("popup-content-2");
+const closeButton2 = document.getElementById("close-button-2");
+
+popupButton2.addEventListener("click", function() {
+  popupOverlay2.style.display = "block";
+});
+
+closeButton2.addEventListener("click", function() {
+  popupOverlay2.style.display = "none";
+});
 
