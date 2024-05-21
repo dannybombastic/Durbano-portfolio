@@ -113,7 +113,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 p {
   color: aliceblue;
   font-size: 2rem;
-  
+
 }
 ol,
 ul {
@@ -784,7 +784,7 @@ ul ol {
     order: -1 !important;
   }
 
-  
+
 
   .justify-content-xl-between {
     justify-content: space-between !important;
@@ -866,8 +866,8 @@ ul ol {
     align-self: stretch !important;
   }
 
-  
-  
+
+
 
   .text-xl-start {
     text-align: left !important;
@@ -1098,8 +1098,8 @@ ul ol {
     align-self: stretch !important;
   }
 
-  
-  
+
+
 
   .text-xxl-start {
     text-align: left !important;
@@ -1221,7 +1221,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("../assets/img/header-bg.webp");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -1484,4 +1484,3 @@ header.masthead .masthead-heading {
       margin-top: auto;
   }
 }
-
