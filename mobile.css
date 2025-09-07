@@ -6,6 +6,40 @@
 
 /* Mobile First Approach - Base Styles for Mobile */
 
+/* ===== GLOBAL MOBILE OVERFLOW FIXES ===== */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* Solo aplicar overflow a las secciones problemáticas específicas */
+    .about,
+    .expertise,
+    .services,
+    .portfolio,
+    .contact {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    
+    .about .container,
+    .expertise .container,
+    .services .container,
+    .portfolio .container,
+    .contact .container,
+    .expertise-grid,
+    .services-grid,
+    .portfolio-grid {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
+
 /* ===== MOBILE BREAKPOINTS ===== */
 /* 
   xs: 0px - 480px     (Small phones)
@@ -130,7 +164,8 @@
         padding: 8rem 5% 4rem;
         text-align: center;
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: visible;
     }
 
     .hero .container {
@@ -151,11 +186,11 @@
     .hero-text {
         order: 1;
         max-width: 100%;
+        overflow: visible !important;
         display: flex;
         flex-direction: column;
         align-items: center; /* Center align the hero text content */
         text-align: center; /* Center align text */
-        animation: none; /* Disable slideInLeft animation that causes alignment issues */
     }
 
     .hero-title {
@@ -202,6 +237,7 @@
         max-width: 300px;
         margin: 0 auto;
         position: relative;
+        opacity: 1 !important; /* Asegurar opacidad completa */
         transform: none !important; /* Force remove any scroll reveal transforms */
     }
 
@@ -231,17 +267,19 @@
 
     /* Scroll Indicator Mobile Optimization */
     .scroll-indicator {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
+        position: absolute !important;
+        bottom: 2rem !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        text-align: center !important;
+        width: auto !important;
+        max-width: none !important;
+        overflow: visible !important;
+        display: flex !important;
+        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        z-index: 10;
+        z-index: 10 !important;
     }
 
     .scroll-line {
@@ -260,12 +298,14 @@
 @media (max-width: 768px) {
     .about {
         padding: 6rem 5% 4rem;
+        overflow-x: hidden;
     }
 
     .about .container {
         padding: 0 2rem;
         margin: 0 auto;
         max-width: 100%;
+        overflow-x: hidden;
     }
 
     .about-content {
@@ -425,12 +465,14 @@
 @media (max-width: 768px) {
     .expertise {
         padding: 6rem 5% 4rem;
+        overflow-x: hidden;
     }
 
     .expertise .container {
         padding: 0 2rem;
         margin: 0 auto;
         max-width: 100%;
+        overflow-x: hidden;
     }
 
     .expertise-content {
@@ -440,12 +482,16 @@
     }
 
     .expertise-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
+        overflow-x: hidden;
+        max-width: 100%;
     }
 
     .expertise-card {
         padding: 2.5rem 2rem;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .expertise-icon {
@@ -482,15 +528,83 @@
 @media (max-width: 768px) {
     .services {
         padding: 6rem 5% 4rem;
+        overflow-x: hidden;
+    }
+
+    .services .container {
+        padding: 0 2rem;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
+        overflow-x: hidden;
+        max-width: 100%;
     }
 
     .service-card {
         padding: 2.5rem 2rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 480px) {
+    .expertise {
+        padding: 4rem 3% 3rem;
+    }
+    
+    /* Apply overflow fixes to ALL sections with section-header */
+    .about .container,
+    .expertise .container,
+    .services .container,
+    .portfolio .container,
+    .contact .container {
+        padding: 0 1rem;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    
+    /* Hide scrollbars for ALL section containers */
+    .about .container::-webkit-scrollbar,
+    .expertise .container::-webkit-scrollbar,
+    .services .container::-webkit-scrollbar,
+    .portfolio .container::-webkit-scrollbar,
+    .contact .container::-webkit-scrollbar {
+        display: none !important; /* WebKit */
+    }
+    
+    .expertise-grid,
+    .services-grid {
+        gap: 1.5rem;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .expertise-grid::-webkit-scrollbar,
+    .services-grid::-webkit-scrollbar {
+        display: none !important; /* WebKit */
+    }
+    
+    .expertise-card,
+    .service-card {
+        padding: 2rem 1.5rem;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .services {
+        padding: 4rem 3% 3rem;
     }
 
     .service-icon {
@@ -520,12 +634,39 @@
     .service-features li {
         font-size: 1.2rem;
     }
+    
+    /* Eliminar scrollbars de las secciones completas */
+    .expertise,
+    .services {
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        max-width: 100% !important;
+    }
+    
+    /* Aplicar overflow solo a contenedores específicos, no a elementos animados */
+    .expertise .container,
+    .services .container,
+    .expertise-grid,
+    .services-grid,
+    .expertise-card,
+    .service-card {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
 }
 
 /* ===== PORTFOLIO SECTION MOBILE ===== */
 @media (max-width: 768px) {
     .portfolio {
         padding: 6rem 5% 4rem;
+        overflow-x: hidden;
+    }
+    
+    .portfolio .container {
+        padding: 0 2rem;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .portfolio-grid {
@@ -583,6 +724,13 @@
         padding: 6rem 5% 4rem;
         position: relative;
         overflow: hidden;
+    }
+    
+    .contact .container {
+        padding: 0 2rem;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .contact-content {
@@ -780,6 +928,13 @@
         margin: 0 auto;
         padding: 0 2rem;
         box-sizing: border-box;
+        overflow-x: hidden; /* Prevent horizontal scrollbars on all containers */
+    }
+    
+    /* Specific rule for containers with section-header */
+    .container:has(.section-header) {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
     }
 
     /* Fix text alignment for all content */
@@ -798,7 +953,6 @@
     .hero-text {
         align-items: center;
         text-align: center;
-        transform: none;
     }
 }
 
@@ -951,6 +1105,7 @@
     .container {
         max-width: 100%;
         padding: 0 4%;
+        overflow-x: hidden; /* Prevent horizontal scrollbars */
     }
 
     .header {

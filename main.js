@@ -146,19 +146,19 @@ function initScrollReveal() {
         });
 
         // Hero section animations
-        sr.reveal('.hero-text', { 
-            origin: 'left',
-            delay: 300,
-            duration: 1000
-        });
+        // sr.reveal('.hero-text', { 
+        //     origin: 'left',
+        //     delay: 300,
+        //     duration: 1000
+        // });
         
-        sr.reveal('.hero-visual', { 
-            origin: 'right',
-            delay: 500,
-            duration: 1000,
-            distance: '0px',
-            reset: false
-        });
+        // sr.reveal('.hero-visual', { 
+        //     origin: 'right',
+        //     delay: 500,
+        //     duration: 1000,
+        //     distance: '0px',
+        //     reset: false
+        // });
 
         // Section headers
         sr.reveal('.section-header', { 

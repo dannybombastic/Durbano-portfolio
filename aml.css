@@ -740,6 +740,7 @@ section {
 .hero-visual {
     position: relative;
     animation: slideInRight 1s ease-out;
+    opacity: 1 !important; /* Asegurar opacidad completa */
 }
 
 .hero-image-container {
