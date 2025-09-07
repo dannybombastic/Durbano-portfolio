@@ -9,12 +9,35 @@
 /* ===== GLOBAL MOBILE OVERFLOW FIXES ===== */
 @media (max-width: 768px) {
     html, body {
-        overflow-x: hidden;
-        max-width: 100vw;
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+        box-sizing: border-box;
     }
     
     * {
         box-sizing: border-box;
+    }
+    
+    /* Prevent any element from causing horizontal overflow */
+    * {
+        max-width: 100%;
+    }
+    
+    /* Prevent ScrollReveal animations from causing overflow */
+    [data-sr] {
+        overflow: visible !important;
+        transform: none !important;
+    }
+    
+    /* Ensure ScrollReveal elements don't exceed container width */
+    .expertise-card[data-sr],
+    .service-card[data-sr],
+    .portfolio-item[data-sr],
+    .section-header[data-sr] {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        transform: translateX(0) !important;
     }
     
     /* Solo aplicar overflow a las secciones problemáticas específicas */
@@ -465,33 +488,78 @@
 @media (max-width: 768px) {
     .expertise {
         padding: 6rem 5% 4rem;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+        position: relative; /* Ensure proper stacking context */
     }
 
     .expertise .container {
         padding: 0 2rem;
         margin: 0 auto;
-        max-width: 100%;
-        overflow-x: hidden;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        box-sizing: border-box;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        position: relative; /* Ensure proper containment */
+    }
+    
+    /* Hide WebKit scrollbar for expertise container */
+    .expertise .container::-webkit-scrollbar {
+        display: none !important;
     }
 
     .expertise-content {
         text-align: center;
         padding: 0 1rem;
         margin: 0 auto;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .expertise-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem;
-        overflow-x: hidden;
-        max-width: 100%;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto;
+        padding: 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        position: relative; /* Proper stacking context */
+        contain: layout; /* CSS containment for better performance */
+    }
+    
+    /* Hide WebKit scrollbar for expertise grid */
+    .expertise-grid::-webkit-scrollbar {
+        display: none !important;
     }
 
     .expertise-card {
         padding: 2.5rem 2rem;
         max-width: 100%;
+        width: 100%;
         box-sizing: border-box;
+        margin: 0 auto;
+        overflow-x: hidden;
+        position: relative; /* Ensure proper positioning */
+        /* Prevent ScrollReveal from moving cards outside viewport */
+        transform: none !important;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* Ensure cards don't move during ScrollReveal animations */
+    .expertise-card[data-sr] {
+        transform: none !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
 
     .expertise-icon {
@@ -528,27 +596,50 @@
 @media (max-width: 768px) {
     .services {
         padding: 6rem 5% 4rem;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        position: relative;
     }
 
     .services .container {
         padding: 0 2rem;
         margin: 0 auto;
         max-width: 100%;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    
+    /* Hide WebKit scrollbar for services container */
+    .services .container::-webkit-scrollbar {
+        display: none !important;
     }
 
     .services-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem;
-        overflow-x: hidden;
-        max-width: 100%;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        max-width: 100% !important;
+        contain: layout; /* CSS containment */
     }
 
     .service-card {
         padding: 2.5rem 2rem;
         max-width: 100%;
         box-sizing: border-box;
+        overflow-x: hidden;
+        position: relative;
+        /* Prevent ScrollReveal from moving cards outside viewport */
+        transform: none !important;
+    }
+    
+    /* Ensure service cards don't move during ScrollReveal animations */
+    .service-card[data-sr] {
+        transform: none !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
 }
 
@@ -636,20 +727,28 @@
     }
     
     /* Eliminar scrollbars de las secciones completas */
+    .about,
     .expertise,
-    .services {
+    .services,
+    .portfolio,
+    .contact {
         overflow-x: hidden !important;
         overflow-y: visible !important;
         max-width: 100% !important;
     }
     
     /* Aplicar overflow solo a contenedores específicos, no a elementos animados */
+    .about .container,
     .expertise .container,
     .services .container,
+    .portfolio .container,
+    .contact .container,
     .expertise-grid,
     .services-grid,
+    .portfolio-grid,
     .expertise-card,
-    .service-card {
+    .service-card,
+    .portfolio-item {
         max-width: 100% !important;
         overflow-x: hidden !important;
     }
@@ -931,10 +1030,26 @@
         overflow-x: hidden; /* Prevent horizontal scrollbars on all containers */
     }
     
-    /* Specific rule for containers with section-header */
-    .container:has(.section-header) {
+    /* Explicit rules for all section containers */
+    .about .container,
+    .expertise .container,
+    .services .container,
+    .portfolio .container,
+    .contact .container {
         overflow-x: hidden !important;
+        overflow-y: visible !important;
         max-width: 100% !important;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    
+    /* WebKit scrollbar hiding for all section containers */
+    .about .container::-webkit-scrollbar,
+    .expertise .container::-webkit-scrollbar,
+    .services .container::-webkit-scrollbar,
+    .portfolio .container::-webkit-scrollbar,
+    .contact .container::-webkit-scrollbar {
+        display: none !important;
     }
 
     /* Fix text alignment for all content */

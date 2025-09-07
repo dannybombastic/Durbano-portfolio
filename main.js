@@ -137,78 +137,113 @@ function initTypedText() {
 /*==== SCROLL REVEAL ANIMATIONS ====*/
 function initScrollReveal() {
     if (typeof ScrollReveal !== 'undefined') {
+        // Detect mobile devices
+        const isMobile = window.innerWidth <= 768;
+        
         const sr = ScrollReveal({
-            distance: '100px',
-            duration: 2000,
-            delay: 200,
+            distance: isMobile ? '20px' : '100px', // Reduce distance on mobile
+            duration: isMobile ? 800 : 2000, // Faster animations on mobile
+            delay: isMobile ? 100 : 200, // Shorter delay on mobile
             reset: false,
-            easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            mobile: true, // Enable on mobile but with reduced effects
+            cleanup: true // Clean up animations to prevent memory leaks
         });
 
-        // Hero section animations
-        // sr.reveal('.hero-text', { 
-        //     origin: 'left',
-        //     delay: 300,
-        //     duration: 1000
-        // });
-        
-        // sr.reveal('.hero-visual', { 
-        //     origin: 'right',
-        //     delay: 500,
-        //     duration: 1000,
-        //     distance: '0px',
-        //     reset: false
-        // });
+        // Skip most animations on mobile to prevent overflow issues
+        if (!isMobile) {
+            // Hero section animations (only on desktop)
+            // sr.reveal('.hero-text', { 
+            //     origin: 'left',
+            //     delay: 300,
+            //     duration: 1000
+            // });
+            
+            // sr.reveal('.hero-visual', { 
+            //     origin: 'right',
+            //     delay: 500,
+            //     duration: 1000,
+            //     distance: '0px',
+            //     reset: false
+            // });
 
-        // Section headers
-        sr.reveal('.section-header', { 
-            origin: 'top',
-            delay: 200
-        });
+            // Section headers (only on desktop)
+            sr.reveal('.section-header', { 
+                origin: 'top',
+                delay: 200,
+                distance: '50px'
+            });
 
-        // About section
-        sr.reveal('.about-image', { 
-            origin: 'left',
-            delay: 300
-        });
-        
-        sr.reveal('.about-text', { 
-            origin: 'right',
-            delay: 400
-        });
+            // About section (only on desktop)
+            sr.reveal('.about-image', { 
+                origin: 'left',
+                delay: 300,
+                distance: '50px'
+            });
+            
+            sr.reveal('.about-text', { 
+                origin: 'right',
+                delay: 400,
+                distance: '50px'
+            });
 
-        // Cards and grids
-        sr.reveal('.expertise-card', { 
-            origin: 'bottom',
-            interval: 200
-        });
-        
-        sr.reveal('.service-card', { 
-            origin: 'bottom',
-            interval: 250
-        });
-        
-        sr.reveal('.portfolio-item', { 
-            origin: 'bottom',
-            interval: 200
-        });
+            // Cards and grids (reduced distance on desktop)
+            sr.reveal('.expertise-card', { 
+                origin: 'bottom',
+                interval: 200,
+                distance: '50px'
+            });
+            
+            sr.reveal('.service-card', { 
+                origin: 'bottom',
+                interval: 250,
+                distance: '50px'
+            });
+            
+            sr.reveal('.portfolio-item', { 
+                origin: 'bottom',
+                interval: 200,
+                distance: '50px'
+            });
 
-        // Contact section
-        sr.reveal('.contact-card', { 
-            origin: 'left',
-            interval: 200
-        });
-        
-        sr.reveal('.contact-visual', { 
-            origin: 'right',
-            delay: 400
-        });
+            // Contact section (only on desktop)
+            sr.reveal('.contact-card', { 
+                origin: 'left',
+                interval: 200,
+                distance: '50px'
+            });
+            
+            sr.reveal('.contact-visual', { 
+                origin: 'right',
+                delay: 400,
+                distance: '50px'
+            });
 
-        // Stats animation
-        sr.reveal('.stat-item', { 
-            origin: 'bottom',
-            interval: 100
-        });
+            // Stats animation (only on desktop)
+            sr.reveal('.stat-item', { 
+                origin: 'bottom',
+                interval: 100,
+                distance: '30px'
+            });
+        } else {
+            // Mobile-only: Very subtle fade-in animations without distance
+            sr.reveal('.section-header', { 
+                origin: 'bottom',
+                delay: 100,
+                duration: 600,
+                distance: '0px', // No movement to prevent overflow
+                opacity: 0
+            });
+            
+            // Simple fade-in for cards on mobile
+            sr.reveal('.expertise-card, .service-card, .portfolio-item', { 
+                origin: 'bottom',
+                interval: 150,
+                duration: 600,
+                distance: '0px', // No movement to prevent overflow
+                opacity: 0
+            });
+        }
     }
 }
 
