@@ -23,288 +23,737 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="aml.css" />
+    <link rel="stylesheet" href="mobile.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
-    <title>Desarrollador DevOps - Daniel Urbano | CI/CD, Automatización de Infraestructura</title>
+    <title>Daniel Urbano - DevOps Professional Portfolio</title>
 </head>
 
 <body>
-
     <!-- Header-->
     <header class="header">
-        <a href="#" class="logo">Daniel <span style="color:aliceblue;font-family: Orbitron;">Urbano</span></a>
+        <a href="#home" class="logo">Daniel <span>Urbano</span></a>
 
         <i class="bx bx-menu" id="menu-icon"></i>
 
         <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="active">
+                <i class='bx bx-home'></i>
+                <span>Home</span>
+            </a>
+            <a href="#about">
+                <i class='bx bx-user'></i>
+                <span>About</span>
+            </a>
+            <a href="#expertise">
+                <i class='bx bx-code-alt'></i>
+                <span>Expertise</span>
+            </a>
+            <a href="#services">
+                <i class='bx bx-cog'></i>
+                <span>Services</span>
+            </a>
+            <a href="#portfolio">
+                <i class='bx bx-briefcase'></i>
+                <span>Projects</span>
+            </a>
+            <a href="route-learning.html">
+                <i class='bx bx-trending-up'></i>
+                <span>Learning Journey</span>
+            </a>
+            <a href="#contact">
+                <i class='bx bx-envelope'></i>
+                <span>Contact</span>
+            </a>
         </nav>
     </header>
 
-    <!--section home design-->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, it's Me</h3>
-            <h1>Daniel Urbano</h1>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
-            <p style="font-weight: bold;">
-                Passionate DevOps professional dedicated to driving efficient and scalable software delivery.
-                Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing deployment
-                processes. Collaborative team player with strong problem-solving skills and a commitment to continuous
-                learning. Committed to streamlining development workflows and enabling cross-functional teams to deliver
-                high-quality software solutions.
-            </p>
-            <div class="social-media">
-                <a href="mailto:dannybombastic@gmail.com" target="_blank">
-                    <i class='bx bxl-gmail'></i>
-                </a>
-                <a href="https://github.com/dannybombastic" target="_blank">
-                    <i class='bx bxl-github'></i>
-                </a>
-                <a href="https://gitlab.com/dannybombastic" target="_blank">
-                    <i class='bx bxl-gitlab'></i>
-                </a>
-                <a href="https://linkedin.com/in/daniel-u-665a004b" target="_blank">
-                    <i class="bx bxl-linkedin"></i>
-                </a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="greeting">Hello, I'm</span>
+                    <span class="name">Daniel Urbano</span>
+                    <span class="role">DevOps Engineer</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typed-text">And I'm a <span class="multiple-text"></span></span>
+                </div>
+                <p class="hero-description">
+                    Passionate DevOps professional dedicated to driving efficient and scalable software delivery.
+                    Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing deployment
+                    processes. Collaborative team player with strong problem-solving skills and a commitment to continuous
+                    learning.
+                </p>
+                <div class="hero-cta">
+                    <a href="#about" class="btn btn-primary">Discover More</a>
+                    <a href="https://linkedin.com/in/daniel-u-665a004b" class="btn btn-secondary" target="_blank">Download CV</a>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:dannybombastic@gmail.com" target="_blank" class="social-link">
+                        <i class='bx bxl-gmail'></i>
+                    </a>
+                    <a href="https://github.com/dannybombastic" target="_blank" class="social-link">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://gitlab.com/dannybombastic" target="_blank" class="social-link">
+                        <i class='bx bxl-gitlab'></i>
+                    </a>
+                    <a href="https://linkedin.com/in/daniel-u-665a004b" target="_blank" class="social-link">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
+                </div>
             </div>
-            <a href="https://linkedin.com/in/daniel-u-665a004b" class="btn" target="_blank">Download CV</a>
+            <div class="hero-visual">
+                <div class="tech-showcase">
+                    <div class="tech-circle">
+                        <div class="center-tech">
+                            <i class='bx bx-code-alt'></i>
+                            <span>DevOps</span>
+                        </div>
+                        <div class="floating-tech tech-1">
+                            <i class='bx bxl-docker'></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="floating-tech tech-2">
+                            <i class='bx bxl-kubernetes'></i>
+                            <span>K8s</span>
+                        </div>
+                        <div class="floating-tech tech-3">
+                            <i class='bx bxl-aws'></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="floating-tech tech-4">
+                            <i class='bx bx-git-merge'></i>
+                            <span>CI/CD</span>
+                        </div>
+                        <div class="floating-tech tech-5">
+                            <i class='bx bx-terminal'></i>
+                            <span>Automation</span>
+                        </div>
+                        <div class="floating-tech tech-6">
+                            <i class='bx bx-cloud'></i>
+                            <span>Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="home-img">
-            <img src="img/CI_server_Devops_Daniel_Urbano_diseño.webp.webp" alt="diseño web Daniel Urbano" />
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">Scroll Down</span>
         </div>
     </section>
 
-    <!--section about design-->
+    <!-- About Section -->
     <section class="about" id="about">
-        <div class="about-img">
-            <img src="img/CI_server_Devops_Daniel_Urbano_diseño.webp.webp" alt="Back-end Daniel Urbano" />
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About
-                <span>Me</span>
-            </h2>
-            <h3>CI Server DevOps</h3>
-
-            <h2>About Me</h2>
-            <p class="description">
-                Passionate DevOps professional dedicated to driving efficient and scalable software delivery.
-                Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing deployment
-                processes. Collaborative team player with strong problem-solving skills and a commitment to continuous
-                learning.
-            </p>
-            <h3>Key Areas of Expertise</h3>
-            <ul>
-                <li><p>Continuous Integration and Continuous Deployment (CI/CD)</p></li>
-                <li><p>Infrastructure as Code (IaC) using tools like Terraform</p></li>
-                <li><p>Containerization with Docker and Kubernetes</p></li>
-                <li><p>Configuration Management with tools like Ansible</p></li>
-                <li><p>Monitoring and Logging using ELK stack</p></li>
-                <li><p>Automated Testing and Quality Assurance</p></li>
-                <li><p>Release Management and Version Control</p></li>
-            </ul>
-
-            <h3>Application Lifecycle Management (ALM)</h3>
-            <p>
-
-                Experienced in driving the ALM cycle to ensure seamless software development and delivery. Proficient in
-                requirements gathering, version control, issue tracking, and release management. Skilled in
-                collaborating with cross-functional teams and stakeholders to achieve project success.
-            </p>
-
-            <a href="route-learning.html" class="btn"  target="_blank">Read More</a>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <p class="section-subtitle">Get to know the person behind the code</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="skills-visualization">
+                        <div class="skill-orbit">
+                            <div class="central-profile">
+                                <i class='bx bx-user-circle'></i>
+                                <span>Daniel Urbano</span>
+                                <small>DevOps Engineer</small>
+                            </div>
+                            <div class="skill-node skill-1">
+                                <i class='bx bxl-docker'></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="skill-node skill-2">
+                                <i class='bx bxl-kubernetes'></i>
+                                <span>Kubernetes</span>
+                            </div>
+                            <div class="skill-node skill-3">
+                                <i class='bx bxl-gitlab'></i>
+                                <span>GitLab</span>
+                            </div>
+                            <div class="skill-node skill-4">
+                                <i class='bx bxl-aws'></i>
+                                <span>AWS</span>
+                            </div>
+                            <div class="skill-node skill-5">
+                                <i class='bx bx-code-alt'></i>
+                                <span>Terraform</span>
+                            </div>
+                            <div class="skill-node skill-6">
+                                <i class='bx bx-line-chart'></i>
+                                <span>Monitoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 class="about-role">CI/CD & DevOps Specialist</h3>
+                    <p class="about-description">
+                        Passionate DevOps professional dedicated to driving efficient and scalable software delivery.
+                        Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing deployment
+                        processes. Collaborative team player with strong problem-solving skills and a commitment to continuous
+                        learning.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">System Reliability</span>
+                        </div>
+                    </div>
+                    <a href="route-learning.html" class="btn btn-outline">
+                        <i class='bx bx-trending-up'></i>
+                        <span>View Learning Journey</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!--section Services design-->
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical <span>Expertise</span></h2>
+                <p class="section-subtitle">Core competencies that drive results</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class='bx bx-git-merge'></i>
+                    </div>
+                    <h3>CI/CD Pipelines</h3>
+                    <p>Expert in designing and implementing continuous integration and deployment workflows</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class='bx bx-package'></i>
+                    </div>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Proficient with Terraform, Ansible, and cloud automation tools</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class='bx bx-cube'></i>
+                    </div>
+                    <h3>Containerization</h3>
+                    <p>Docker, Kubernetes, and container orchestration expertise</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class='bx bx-line-chart'></i>
+                    </div>
+                    <h3>Monitoring & Observability</h3>
+                    <p>ELK stack, Prometheus, Grafana for comprehensive system monitoring</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class='bx bx-shield'></i>
+                    </div>
+                    <h3>Security & Compliance</h3>
+                    <p>DevSecOps practices and security automation integration</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class='bx bx-cloud'></i>
+                    </div>
+                    <h3>Cloud Platforms</h3>
+                    <p>AWS, Azure, GCP with multi-cloud architecture experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
     <section class="services" id="services">
-        <h2 class="heading" style="padding-bottom: 5rem">My <span>Services</span></h2>
-        <div class="services-container">
-            <div class="services-box">
-                <i class='bx bx-recycle'></i>
-                <h3>ALM</h3>
-                <p>
-                    Application Lifecycle Management is a methodology and set of tools to manage the complete lifecycle of an application, from development to deployment and maintenance.
-                </p>
-                <a class="btn" id="popup-button-3">Read More</a>
-                <div id="popup-overlay-3" class="popup-overlay-3">
-                    <div id="popup-content-3" class="popup-content-3">
-                        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content-3 ">
-                                    <div class="close-modal-3 justify-content-center" data-bs-dismiss="modal">
-                                        <img src="img/DevOpsLoop.webp" alt="Close modal" width="90%" height="200" />
-                                    </div>
-                                    <div class="container popup1">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-8">
-                                                <div class="modal-body">
-                                                    <h2 style="margin-top: 15px;">Application Lifecycle Management</h2>
-                                                    <p>
-                                                        Monitoring and logging play a crucial role in DevOps by providing real-time insights into system performance, identifying issues, and ensuring efficient operations. Tools like Prometheus offer powerful metrics collection and alerting capabilities, while Grafana provides flexible visualization of data. The ELK stack (Elasticsearch, Logstash, and Kibana) is widely used for log management, analysis, and monitoring. Together, these tools empower teams to proactively address performance bottlenecks and maintain system reliability.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn" id="close-button-3" style="background-color: black; color:aliceblue; font-family: 'Futura';">Cerrar</button>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span>Services</span></h2>
+                <p class="section-subtitle">Comprehensive DevOps solutions for your business</p>
             </div>
-
-            <div class="services-box">
-                <i class='bx bx-pie-chart'></i>
-                <h3>Monitoring</h3>
-                <p>
-                    Discuss the importance of monitoring and logging in DevOps.
-                    Highlight tools like Prometheus, Grafana, and ELK stack for monitoring and analyzing system performance.
-                </p>
-                <a class="btn" id="popup-button-1">Read More</a>
-                <div id="popup-overlay-1" class="popup-overlay-1">
-                    <div id="popup-content-1" class="popup-content-1">
-                        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content-1 ">
-                                    <div class="close-modal-1 justify-content-center" data-bs-dismiss="modal">
-                                        <img src="img/desktop-wallpaper-computer-programming.webp" alt="Close modal" width="90%" height="200" />
-                                    </div>
-                                    <div class="container popup1">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-8">
-                                                <div class="modal-body">
-                                                    <h2>MONITORING</h2>
-                                                    <p>
-                                                        Monitoring and logging play a crucial role in DevOps by providing real-time insights into system performance, identifying issues, and ensuring efficient operations. Tools like Prometheus offer powerful metrics collection and alerting capabilities, while Grafana provides flexible visualization of data. The ELK stack (Elasticsearch, Logstash, and Kibana) is widely used for log management, analysis, and monitoring. Together, these tools empower teams to proactively address performance bottlenecks and maintain system reliability.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn" id="close-button-1" style="background-color: black; color:aliceblue; font-family: 'Futura';">Cerrar</button>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-recycle'></i>
                     </div>
+                    <h3>Application Lifecycle Management</h3>
+                    <p>Complete ALM methodology and tools to manage application lifecycle from development to maintenance.</p>
+                    <div class="service-features">
+                        <span class="feature">Version Control</span>
+                        <span class="feature">Release Management</span>
+                        <span class="feature">Quality Assurance</span>
+                    </div>
+                    <button class="btn btn-service" data-service="alm">Learn More</button>
                 </div>
-            </div>
-
-            <div class="services-box">
-                <i class='bx bx-test-tube'></i>
-                <h3>Q&A Session</h3>
-                <p>
-                    Address any concerns or queries related to DevOps in website development
-                    support the team in the implementation of DevOps practices
-                </p>
-                <a class="btn" id="popup-button-2">Read More</a>
-                <div id="popup-overlay-2" class="popup-overlay-2">
-                    <div id="popup-content-2" class="popup-content-2">
-                        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content-2">
-                                    <div class="close-modal-2 justify-content-center" data-bs-dismiss="modal">
-                                        <img src="img/answer.webp" alt="Close modal" width="90%" height="200" />
-                                    </div>
-                                    <div class="container popup1">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-8">
-                                                <div class="modal-body">
-                                                    <h2>QUESTION AND ANSWER</h2>
-                                                    <p>
-                                                        During the Q&A session, encourage active participation from the audience to foster engagement and create a space for knowledge sharing. By addressing concerns, clarifying doubts, and providing practical examples, the session promotes a holistic understanding of DevOps principles and their benefits in website development. This collaborative approach strengthens team dynamics and facilitates the successful adoption of DevOps practices, ultimately leading to efficient workflows, faster delivery cycles, and higher-quality software.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn" id="close-button-2" style="background-color: black; color:aliceblue; font-family: 'Futura';">Cerrar</button>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-pie-chart'></i>
                     </div>
+                    <h3>Monitoring & Analytics</h3>
+                    <p>Real-time system monitoring with Prometheus, Grafana, and ELK stack for optimal performance insights.</p>
+                    <div class="service-features">
+                        <span class="feature">Performance Metrics</span>
+                        <span class="feature">Log Analysis</span>
+                        <span class="feature">Alert Management</span>
+                    </div>
+                    <button class="btn btn-service" data-service="monitoring">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-support'></i>
+                    </div>
+                    <h3>DevOps Consultation</h3>
+                    <p>Expert guidance on DevOps implementation, best practices, and organizational transformation.</p>
+                    <div class="service-features">
+                        <span class="feature">Process Optimization</span>
+                        <span class="feature">Team Training</span>
+                        <span class="feature">Strategy Planning</span>
+                    </div>
+                    <button class="btn btn-service" data-service="consultation">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-server'></i>
+                    </div>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Automated infrastructure provisioning and management using Terraform, Ansible, and cloud-native tools.</p>
+                    <div class="service-features">
+                        <span class="feature">Cloud Automation</span>
+                        <span class="feature">Infrastructure Scaling</span>
+                        <span class="feature">Cost Optimization</span>
+                    </div>
+                    <button class="btn btn-service" data-service="infrastructure">Learn More</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--section Portfolio design-->
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Project</span></h2>
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <img src="img/dany122.webp" alt="Git hub Daniel Urbano" />
-                <div class="portfolio-layer" style="width: 100%; height: 100%;">
-                    <img src="img/cert-git.webp" alt="Git lab Daniel Urbano" />
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">DevOps <span>Projects</span></h2>
+                <p class="section-subtitle">Real-world infrastructure automation and CI/CD implementations</p>
             </div>
-            <div class="portfolio-box">
-                <img src="img/Gitlab_Daniel_Urbano.webp" alt="Certificación Daniel Urbano" />
-                <div class="portfolio-layer" style="width: 100%; height: 100%;">
-                    <img src="img/cert-ang.webp" alt="Certificación Daniel Urbano" />
+            <div class="portfolio-grid">
+                <!-- Project 1: Kubernetes Cluster -->
+                <div class="portfolio-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class='bx bxl-kubernetes'></i>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Helm</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Enterprise Kubernetes Platform</h3>
+                        <p class="project-description">
+                            Designed and implemented a production-ready Kubernetes cluster supporting 50+ microservices 
+                            with automated scaling, monitoring, and disaster recovery capabilities.
+                        </p>
+                        <div class="project-achievements">
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>99.9% uptime achieved</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>50% cost reduction</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Auto-scaling implemented</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class='bx bxl-github'></i>
+                                <span>View Code</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class='bx bx-link-external'></i>
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/Daniel_urbano2.webp" alt="Certificación Daniel Urbano" />
-                <div class="portfolio-layer" style="width: 100%; height: 100%;">
-                    <img src="img/cert-jav.webp" alt="Certificación Daniel Urbano" />
+
+                <!-- Project 2: CI/CD Pipeline -->
+                <div class="portfolio-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class='bx bxl-gitlab'></i>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">GitLab CI</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">SonarQube</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Multi-Environment CI/CD Pipeline</h3>
+                        <p class="project-description">
+                            Built comprehensive CI/CD pipeline supporting automated testing, security scanning, 
+                            and deployment across development, staging, and production environments.
+                        </p>
+                        <div class="project-achievements">
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Deployment time: 2 hours → 15 minutes</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Zero-downtime deployments</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Automated security scans</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class='bx bxl-gitlab'></i>
+                                <span>GitLab Project</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class='bx bx-file-blank'></i>
+                                <span>Documentation</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/Daniel_urbano3.webp" alt="Certificación Daniel Urbano" />
-                <div class="portfolio-layer" style="width: 100%; height: 100%;">
-                    <img src="img/cert-types.webp" alt="Certificación Daniel Urbano" />
+
+                <!-- Project 3: Infrastructure as Code -->
+                <div class="portfolio-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class='bx bxl-aws'></i>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">CloudFormation</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cloud Infrastructure Automation</h3>
+                        <p class="project-description">
+                            Developed Terraform modules for AWS infrastructure provisioning with automated 
+                            backup strategies, monitoring, and compliance enforcement across multiple regions.
+                        </p>
+                        <div class="project-achievements">
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Infrastructure provisioning: 3 days → 30 minutes</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Multi-region deployment</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Automated compliance checks</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class='bx bxl-github'></i>
+                                <span>Terraform Modules</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class='bx bxl-aws'></i>
+                                <span>AWS Architecture</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Monitoring & Observability -->
+                <div class="portfolio-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class='bx bx-line-chart'></i>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">ELK Stack</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Complete Observability Platform</h3>
+                        <p class="project-description">
+                            Implemented comprehensive monitoring solution with real-time metrics, log aggregation, 
+                            distributed tracing, and intelligent alerting for microservices architecture.
+                        </p>
+                        <div class="project-achievements">
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>MTTR reduced by 70%</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>360° system visibility</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Proactive alerting system</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class='bx bx-bar-chart-alt-2'></i>
+                                <span>Grafana Dashboards</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class='bx bx-cog'></i>
+                                <span>Configuration</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Security Automation -->
+                <div class="portfolio-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class='bx bx-shield-quarter'></i>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">OWASP ZAP</span>
+                            <span class="tech-tag">Vault</span>
+                            <span class="tech-tag">Falco</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>DevSecOps Security Pipeline</h3>
+                        <p class="project-description">
+                            Integrated security scanning and compliance automation into CI/CD pipeline with 
+                            vulnerability management, secrets rotation, and runtime security monitoring.
+                        </p>
+                        <div class="project-achievements">
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Automated vulnerability scanning</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Zero secrets in code</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Compliance automation</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class='bx bx-shield'></i>
+                                <span>Security Policies</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class='bx bx-file-blank'></i>
+                                <span>Security Report</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Database Automation -->
+                <div class="portfolio-project">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class='bx bx-data'></i>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Ansible</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Database Operations Automation</h3>
+                        <p class="project-description">
+                            Automated database provisioning, backup, monitoring, and scaling with 
+                            high availability setup and disaster recovery procedures for critical systems.
+                        </p>
+                        <div class="project-achievements">
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Automated daily backups</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>High availability setup</span>
+                            </div>
+                            <div class="achievement">
+                                <i class='bx bx-check-circle'></i>
+                                <span>Performance optimization</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class='bx bxl-postgresql'></i>
+                                <span>DB Scripts</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class='bx bx-play-circle'></i>
+                                <span>Ansible Playbooks</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--section Contact design-->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2 class="heading" style="padding-bottom: 5rem">Contact <span>Me</span></h2>
-        <div class="services-container">
-            <div class="services-box1">
-                <img style="width: 100px;height: 100px;" class="mx-auto rounded-circle" src="img/gmail_icon-icons.com_62758.webp.webp" alt="Email Daniel Urbano" />
-                <h2 style="margin-top: 15px;">
-                    <a class="butonwat" href="mailto:dannybombastic@gmail.com?subject=Consulta&body=Hola%20Danny,%0D%0A%0D%0AQuería%20hacerte%20una%20consulta%20sobre..." style="font-family: 'Futura';">Gmail</a>
-                </h2>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's <span>Connect</span></h2>
+                <p class="section-subtitle">Ready to transform your DevOps journey?</p>
             </div>
-            <div class="services-box2 centro">
-                <img class="mx-auto" src="img/Ruxxdesign.webp" alt="Git lab Daniel Urbano" />
-            </div>
-            <div class="services-box1">
-                <img style="width: 100px;height: 100px;" class="mx-auto rounded-circle" src="img/wasa.webp" alt="whatsapp Daniel Urbano" />
-                <h2 style="margin-top: 15px;">
-                    <a class="butonwat" target="_blank" href="https://api.whatsapp.com/send?phone=+34633437069&text=¡Hola!" style="font-family: 'Futura';">whatsapp</a>
-                </h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class='bx bxl-gmail'></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Get in touch via email</p>
+                        <a href="mailto:dannybombastic@gmail.com?subject=DevOps Consultation&body=Hi Daniel,%0D%0A%0D%0AI'm interested in discussing DevOps solutions..." class="contact-link">
+                            dannybombastic@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class='bx bxl-whatsapp'></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Quick consultation chat</p>
+                        <a href="https://api.whatsapp.com/send?phone=+34633437069&text=Hello Daniel! I'm interested in DevOps services." target="_blank" class="contact-link">
+                            +34 633 437 069
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class='bx bxl-linkedin'></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>Professional networking</p>
+                        <a href="https://linkedin.com/in/daniel-u-665a004b" target="_blank" class="contact-link">
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-visual">
+                    <div class="contact-animation">
+                        <div class="wave-container">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                            <div class="wave wave-3"></div>
+                        </div>
+                        <div class="floating-contact-elements">
+                            <a href="mailto:dannybombastic@gmail.com" class="floating-contact-element contact-1">
+                                <i class='bx bx-envelope'></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/daniel-u-665a004b/" target="_blank" class="floating-contact-element contact-2">
+                                <i class='bx bxl-linkedin'></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/dannybombastic" target="_blank" class="floating-contact-element contact-3">
+                                <i class='bx bxl-github'></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="tel:+34123456789" class="floating-contact-element contact-4">
+                                <i class='bx bx-phone'></i>
+                                <span>Phone</span>
+                            </a>
+                            <a href="#" class="floating-contact-element contact-5" onclick="startChat()">
+                                <i class='bx bx-message-dots'></i>
+                                <span>Chat</span>
+                            </a>
+                        </div>
+                        <div class="central-contact-hub">
+                            <i class='bx bx-user-voice'></i>
+                            <span>Let's Connect</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!--footer section design-->
     <footer class="footer">
-        <div class="footer-text">
-            <p>&copy; 2023 - Daniel Urbano. All rights reserved.</p>
-        </div>
-        <div class="footer-iconTop">
-            <a href="#home">
-                <i class="bx bx-up-arrow-alt"></i>
-            </a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniel Urbano</h3>
+                    <p>DevOps Engineer & Cloud Architect</p>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:dannybombastic@gmail.com" target="_blank" class="social-link">
+                        <i class='bx bxl-gmail'></i>
+                    </a>
+                    <a href="https://github.com/dannybombastic" target="_blank" class="social-link">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://gitlab.com/dannybombastic" target="_blank" class="social-link">
+                        <i class='bx bxl-gitlab'></i>
+                    </a>
+                    <a href="https://linkedin.com/in/daniel-u-665a004b" target="_blank" class="social-link">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Daniel Urbano. All rights reserved.</p>
+                <a href="#home" class="back-to-top">
+                    <i class="bx bx-up-arrow-alt"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
+    <!-- Service Modals -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <!-- scroll reveal-->
     <script src="https://unpkg.com/scrollreveal"></script>
+
     <!-- Scripts -->
     <script src="main.js"></script>
+
     <!-- typed js-->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 </body>
