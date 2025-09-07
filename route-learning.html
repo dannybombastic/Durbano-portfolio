@@ -40,14 +40,14 @@
         }
 
         .learning-hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--hero-gradient);
             position: relative;
             overflow: hidden;
-            padding: 8rem 5% 4rem;
+            padding: 8rem 5% 0.5rem;
         }
 
         .learning-hero::before {
@@ -57,8 +57,254 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.1"/><stop offset="100%" stop-color="%23764ba2" stop-opacity="0"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="url(%23a)"><animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;1;0"/></circle><circle cx="80" cy="30" r="1.5" fill="url(%23a)"><animate attributeName="opacity" dur="4s" repeatCount="indefinite" values="0;1;0"/></circle><circle cx="40" cy="70" r="1" fill="url(%23a)"><animate attributeName="opacity" dur="2s" repeatCount="indefinite" values="0;1;0"/></circle></svg>');
+            background: transparent;
             animation: float 20s ease-in-out infinite;
+        }
+
+        /* Dramatic floating bubbles */
+        .learning-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 105, 180, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 20, 147, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 60% 90%, rgba(255, 69, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 90% 60%, rgba(30, 144, 255, 0.3) 0%, transparent 50%);
+            animation: bubbleFloat 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Individual floating bubbles */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, 
+                rgba(255, 105, 180, 0.6), 
+                rgba(255, 20, 147, 0.4));
+            box-shadow: 
+                0 0 20px rgba(255, 105, 180, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: bubbleRise 8s ease-in-out infinite;
+        }
+
+        .bubble:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            left: 20%;
+            animation-delay: 2s;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            left: 85%;
+            animation-delay: 4s;
+            animation-duration: 14s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 30px;
+            height: 30px;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 50px;
+            height: 50px;
+            left: 40%;
+            animation-delay: 8s;
+            animation-duration: 11s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 25px;
+            height: 25px;
+            left: 60%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 70px;
+            height: 70px;
+            left: 30%;
+            animation-delay: 5s;
+            animation-duration: 13s;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 105, 180, 0.6) 50%, 
+                transparent 100%);
+            animation: particleFloat 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .particle:nth-child(8) {
+            width: 8px;
+            height: 8px;
+            left: 15%;
+            top: 60%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(9) {
+            width: 12px;
+            height: 12px;
+            left: 75%;
+            top: 40%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(10) {
+            width: 6px;
+            height: 6px;
+            left: 50%;
+            top: 70%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(11) {
+            width: 10px;
+            height: 10px;
+            left: 90%;
+            top: 80%;
+            animation-delay: 6s;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            25% {
+                transform: translateY(-30px) scale(1.2);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-60px) scale(0.8);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateY(-30px) scale(1.1);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes bubbleFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+                opacity: 1;
+            }
+            66% {
+                transform: translateY(-10px) rotate(240deg);
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes bubbleRise {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+                transform: translateX(0) scale(0.8);
+            }
+            20% {
+                opacity: 1;
+                transform: translateX(-20px) scale(1);
+            }
+            40% {
+                transform: translateX(20px) scale(1.1);
+            }
+            60% {
+                transform: translateX(-10px) scale(0.9);
+            }
+            80% {
+                opacity: 0.8;
+                transform: translateX(10px) scale(1);
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+                transform: translateX(0) scale(0.5);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        @keyframes heroTitleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-80px) scale(0.8);
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(-20px) scale(0.95);
+                filter: blur(3px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes heroSubtitleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(60px);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes heroButtonEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.8);
+            }
+            70% {
+                transform: translateY(-5px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .learning-content {
@@ -76,6 +322,7 @@
             background-clip: text;
             margin-bottom: 2rem;
             line-height: 1.2;
+            animation: heroTitleEntrance 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
         }
 
         .learning-subtitle {
@@ -86,6 +333,11 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            animation: heroSubtitleEntrance 1.2s ease-out 0.3s both;
+        }
+
+        .back-btn {
+            animation: heroButtonEntrance 1.0s ease-out 0.6s both;
         }
 
         .back-btn {
@@ -110,7 +362,7 @@
         }
 
         .timeline-section {
-            padding: 8rem 5% 4rem;
+            padding: 1.5rem 5% 4rem;
             background: var(--bg-color);
             position: relative;
         }
@@ -247,7 +499,12 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .learning-hero {
-                padding: 6rem 5% 3rem;
+                min-height: 60vh;
+                padding: 6rem 5% 0.5rem;
+            }
+
+            .timeline-section {
+                padding: 1rem 5% 4rem;
             }
 
             .timeline-line {
@@ -289,31 +546,137 @@
         @keyframes slideInFromLeft {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-120px) scale(0.8);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateX(-20px) scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) scale(1);
             }
         }
 
         @keyframes slideInFromRight {
             from {
                 opacity: 0;
-                transform: translateX(50px);
+                transform: translateX(120px) scale(0.8);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateX(20px) scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
-            animation: slideInFromLeft 0.8s ease-out;
+            animation: slideInFromLeft 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-fill-mode: both;
+            animation-play-state: paused;
         }
 
         .timeline-item:nth-child(even) .timeline-content {
-            animation: slideInFromRight 0.8s ease-out;
+            animation: slideInFromRight 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-fill-mode: both;
+            animation-play-state: paused;
+        }
+
+        .timeline-item .timeline-date {
+            animation: fadeInUp 1.0s ease-out 0.3s both;
+            animation-play-state: paused;
+        }
+
+        .timeline-item::before {
+            animation: popIn 0.8s ease-out 0.5s both;
+            animation-play-state: paused;
+        }
+
+        /* Triggered animations */
+        .timeline-item.animate:nth-child(odd) .timeline-content {
+            animation-play-state: running;
+        }
+
+        .timeline-item.animate:nth-child(even) .timeline-content {
+            animation-play-state: running;
+        }
+
+        .timeline-item.animate .timeline-date {
+            animation-play-state: running;
+        }
+
+        .timeline-item.animate::before {
+            animation-play-state: running;
+        }
+
+        /* Enhanced hover effects */
+        .timeline-content:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .timeline-icon:hover {
+            transform: scale(1.3) rotate(10deg);
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #dc143c);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Footer specific styles for learning page */
+        .footer {
+            margin-top: 5rem;
+            background: linear-gradient(135deg, 
+                rgba(26, 26, 46, 0.95) 0%, 
+                rgba(40, 40, 70, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .footer-content {
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -337,6 +700,21 @@
 
     <!-- Learning Hero Section -->
     <section class="learning-hero">
+        <!-- Floating bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        
+        <!-- Floating particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
         <div class="learning-content">
             <h1 class="learning-title">Learning Journey</h1>
             <p class="learning-subtitle">
@@ -545,7 +923,82 @@
         </div>
     </section>
 
+    <!--footer section design-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniel Urbano</h3>
+                    <p>DevOps Engineer & Cloud Architect</p>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:dannybombastic@gmail.com" target="_blank" class="social-link">
+                        <i class='bx bxl-gmail'></i>
+                    </a>
+                    <a href="https://github.com/dannybombastic" target="_blank" class="social-link">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://gitlab.com/dannybombastic" target="_blank" class="social-link">
+                        <i class='bx bxl-gitlab'></i>
+                    </a>
+                    <a href="https://linkedin.com/in/daniel-u-665a004b" target="_blank" class="social-link">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Daniel Urbano. All rights reserved.</p>
+                <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <i class="bx bx-up-arrow-alt"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script src="main.js"></script>
+    <script>
+        // Enhanced timeline animations with Intersection Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            // Create intersection observer with enhanced options
+            const observerOptions = {
+                threshold: 0.2, // Trigger when 20% of item is visible
+                rootMargin: '0px 0px -50px 0px' // Offset to trigger earlier
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add staggered delay for cascading effect
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 150); // 150ms delay between each item
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all timeline items
+            timelineItems.forEach((item, index) => {
+                // Add initial delay based on item position
+                item.style.setProperty('--item-delay', `${index * 0.1}s`);
+                observer.observe(item);
+            });
+            
+            // Enhanced scroll effects for timeline line
+            const timelineLine = document.querySelector('.timeline-line');
+            if (timelineLine) {
+                window.addEventListener('scroll', () => {
+                    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                    const maxHeight = Math.min(scrollPercent * 200, 100);
+                    timelineLine.style.background = `linear-gradient(to bottom, 
+                        #ff69b4 0%, 
+                        #ff1493 ${maxHeight}%, 
+                        transparent ${maxHeight}%)`;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
