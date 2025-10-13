@@ -2,33 +2,121 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68999635-3"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Sitio web de Daniel Urbano, desarrollador web especializado en DevOps. Obtén servicios de CI/CD, automatización de infraestructura y más." />
+    <meta name="theme-color" content="#667eea">
+
+    <title>Daniel Urbano - DevOps Professional Portfolio</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- DNS Prefetch for third-party domains -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- Critical inline CSS for faster FCP -->
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+            overflow-x: hidden
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #1a202c;
+            overflow-x: hidden
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 50px 0;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem
+        }
+    </style>
+
+    <!-- Preload critical CSS with high priority -->
+    <link rel="preload" href="aml.css" as="style" fetchpriority="high">
+    <link rel="preload" href="mobile.css" as="style">
+
+    <!-- Critical Styles -->
+    <link rel="stylesheet" href="aml.css" fetchpriority="high" />
+    <link rel="stylesheet" href="mobile.css" media="all" />
+
+    <!-- BoxIcon - Load asynchronously with low priority -->
+    <link rel="preload" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" fetchpriority="low">
+    <noscript>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- Google tag (gtag.js) - Async -->
+<!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KNS3BRP');</script>
+    <!-- End Google Tag Manager -->
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag("js", new Date());
         gtag("config", "UA-68999635-3");
     </script>
-
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sitio web de Daniel Urbano, desarrollador web especializado en DevOps. Obtén servicios de CI/CD, automatización de infraestructura y más." />
-
-    <!--BoxIcon-->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="aml.css" />
-    <link rel="stylesheet" href="mobile.css" />
-
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-
-    <title>Daniel Urbano - DevOps Professional Portfolio</title>
 </head>
 
 <body>
@@ -85,12 +173,14 @@
                 <p class="hero-description">
                     Passionate DevOps professional dedicated to driving efficient and scalable software delivery.
                     Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing deployment
-                    processes. Collaborative team player with strong problem-solving skills and a commitment to continuous
+                    processes. Collaborative team player with strong problem-solving skills and a commitment to
+                    continuous
                     learning.
                 </p>
                 <div class="hero-cta">
                     <a href="#about" class="btn btn-primary">Discover More</a>
-                    <a href="https://linkedin.com/in/daniel-u-665a004b" class="btn btn-secondary" target="_blank">Download CV</a>
+                    <a href="https://linkedin.com/in/daniel-u-665a004b" class="btn btn-secondary"
+                        target="_blank">Download CV</a>
                 </div>
                 <div class="social-links">
                     <a href="mailto:dannybombastic@gmail.com" target="_blank" class="social-link">
@@ -195,8 +285,10 @@
                     <h3 class="about-role">CI/CD & DevOps Specialist</h3>
                     <p class="about-description">
                         Passionate DevOps professional dedicated to driving efficient and scalable software delivery.
-                        Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing deployment
-                        processes. Collaborative team player with strong problem-solving skills and a commitment to continuous
+                        Experienced in implementing CI/CD pipelines, automating infrastructure, and optimizing
+                        deployment
+                        processes. Collaborative team player with strong problem-solving skills and a commitment to
+                        continuous
                         learning.
                     </p>
                     <div class="stats-grid">
@@ -289,7 +381,8 @@
                         <i class='bx bx-recycle'></i>
                     </div>
                     <h3>Application Lifecycle</h3>
-                    <p>Complete ALM methodology and tools to manage application lifecycle from development to maintenance.</p>
+                    <p>Complete ALM methodology and tools to manage application lifecycle from development to
+                        maintenance.</p>
                     <div class="service-features">
                         <span class="feature">Version Control</span>
                         <span class="feature">Release Management</span>
@@ -297,13 +390,14 @@
                     </div>
                     <button class="btn btn-service" data-service="alm">Learn More</button>
                 </div>
-                
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class='bx bx-pie-chart'></i>
                     </div>
                     <h3>Monitoring & Analytics</h3>
-                    <p>Real-time system monitoring with Prometheus, Grafana, and ELK stack for optimal performance insights.</p>
+                    <p>Real-time system monitoring with Prometheus, Grafana, and ELK stack for optimal performance
+                        insights.</p>
                     <div class="service-features">
                         <span class="feature">Performance Metrics</span>
                         <span class="feature">Log Analysis</span>
@@ -331,7 +425,8 @@
                         <i class='bx bx-server'></i>
                     </div>
                     <h3>Infrastructure as Code</h3>
-                    <p>Automated infrastructure provisioning and management using Terraform, Ansible, and cloud-native tools.</p>
+                    <p>Automated infrastructure provisioning and management using Terraform, Ansible, and cloud-native
+                        tools.</p>
                     <div class="service-features">
                         <span class="feature">Cloud Automation</span>
                         <span class="feature">Infrastructure Scaling</span>
@@ -366,7 +461,7 @@
                     <div class="project-content">
                         <h3>Enterprise Kubernetes Platform</h3>
                         <p class="project-description">
-                            Designed and implemented a production-ready Kubernetes cluster supporting 50+ microservices 
+                            Designed and implemented a production-ready Kubernetes cluster supporting 50+ microservices
                             with automated scaling, monitoring, and disaster recovery capabilities.
                         </p>
                         <div class="project-achievements">
@@ -411,7 +506,7 @@
                     <div class="project-content">
                         <h3>Multi-Environment CI/CD Pipeline</h3>
                         <p class="project-description">
-                            Built comprehensive CI/CD pipeline supporting automated testing, security scanning, 
+                            Built comprehensive CI/CD pipeline supporting automated testing, security scanning,
                             and deployment across development, staging, and production environments.
                         </p>
                         <div class="project-achievements">
@@ -456,7 +551,7 @@
                     <div class="project-content">
                         <h3>Cloud Infrastructure Automation</h3>
                         <p class="project-description">
-                            Developed Terraform modules for AWS infrastructure provisioning with automated 
+                            Developed Terraform modules for AWS infrastructure provisioning with automated
                             backup strategies, monitoring, and compliance enforcement across multiple regions.
                         </p>
                         <div class="project-achievements">
@@ -501,7 +596,7 @@
                     <div class="project-content">
                         <h3>Complete Observability Platform</h3>
                         <p class="project-description">
-                            Implemented comprehensive monitoring solution with real-time metrics, log aggregation, 
+                            Implemented comprehensive monitoring solution with real-time metrics, log aggregation,
                             distributed tracing, and intelligent alerting for microservices architecture.
                         </p>
                         <div class="project-achievements">
@@ -546,7 +641,7 @@
                     <div class="project-content">
                         <h3>DevSecOps Security Pipeline</h3>
                         <p class="project-description">
-                            Integrated security scanning and compliance automation into CI/CD pipeline with 
+                            Integrated security scanning and compliance automation into CI/CD pipeline with
                             vulnerability management, secrets rotation, and runtime security monitoring.
                         </p>
                         <div class="project-achievements">
@@ -591,7 +686,7 @@
                     <div class="project-content">
                         <h3>Database Operations Automation</h3>
                         <p class="project-description">
-                            Automated database provisioning, backup, monitoring, and scaling with 
+                            Automated database provisioning, backup, monitoring, and scaling with
                             high availability setup and disaster recovery procedures for critical systems.
                         </p>
                         <div class="project-achievements">
@@ -639,7 +734,8 @@
                         </div>
                         <h3>Email</h3>
                         <p>Get in touch via email</p>
-                        <a href="mailto:dannybombastic@gmail.com?subject=DevOps Consultation&body=Hi Daniel,%0D%0A%0D%0AI'm interested in discussing DevOps solutions..." class="contact-link">
+                        <a href="mailto:dannybombastic@gmail.com?subject=DevOps Consultation&body=Hi Daniel,%0D%0A%0D%0AI'm interested in discussing DevOps solutions..."
+                            class="contact-link">
                             dannybombastic@gmail.com
                         </a>
                     </div>
@@ -650,7 +746,8 @@
                         </div>
                         <h3>WhatsApp</h3>
                         <p>Quick consultation chat</p>
-                        <a href="https://api.whatsapp.com/send?phone=+34633437069&text=Hello Daniel! I'm interested in DevOps services." target="_blank" class="contact-link">
+                        <a href="https://api.whatsapp.com/send?phone=+34633437069&text=Hello Daniel! I'm interested in DevOps services."
+                            target="_blank" class="contact-link">
                             +34 633 437 069
                         </a>
                     </div>
@@ -666,7 +763,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="contact-visual">
                     <div class="contact-animation">
                         <div class="wave-container">
@@ -679,11 +776,13 @@
                                 <i class='bx bx-envelope'></i>
                                 <span>Email</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/daniel-u-665a004b/" target="_blank" class="floating-contact-element contact-2">
+                            <a href="https://www.linkedin.com/in/daniel-u-665a004b/" target="_blank"
+                                class="floating-contact-element contact-2">
                                 <i class='bx bxl-linkedin'></i>
                                 <span>LinkedIn</span>
                             </a>
-                            <a href="https://github.com/dannybombastic" target="_blank" class="floating-contact-element contact-3">
+                            <a href="https://github.com/dannybombastic" target="_blank"
+                                class="floating-contact-element contact-3">
                                 <i class='bx bxl-github'></i>
                                 <span>GitHub</span>
                             </a>
@@ -748,14 +847,11 @@
         </div>
     </div>
 
-    <!-- scroll reveal-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- Scripts -->
-    <script src="main.js"></script>
-
-    <!-- typed js-->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <!-- Optimized Scripts Loading Strategy -->
+    <!-- Main script loads first, libraries can load in parallel -->
+    <script defer src="main.js" fetchpriority="high"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script defer src="https://unpkg.com/scrollreveal"></script>
 </body>
 
 </html>

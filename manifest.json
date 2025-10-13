@@ -1,0 +1,26 @@
+{
+  "name": "Daniel Urbano - DevOps Portfolio",
+  "short_name": "D. Urbano",
+  "description": "DevOps Professional Portfolio - CI/CD & Infrastructure Automation Expert",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a202c",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/Daniel_Urbano.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/Daniel_Urbano.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "devops", "technology"],
+  "lang": "en"
+}

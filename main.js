@@ -1,5 +1,44 @@
 // Modern Portfolio JavaScript - Daniel Urbano
 
+/*==== SERVICE WORKER REGISTRATION ====*/
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
+
+/*==== PERFORMANCE UTILITIES ====*/
+// Debounce function to limit function calls
+function debounce(func, wait = 10) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Throttle function for scroll events
+function throttle(func, limit = 16) {
+    let inThrottle;
+    return function executedFunction(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
 /*==== DOM LOADED ====*/
 document.addEventListener('DOMContentLoaded', function() {
     initializePortfolio();
@@ -7,18 +46,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*==== MAIN INITIALIZATION ====*/
 function initializePortfolio() {
-    // Initialize all components
+    // Initialize critical components first
     initMobileMenu();
     initScrollEffects();
-    initTypedText();
-    initScrollReveal();
-    initSmoothScrolling();
-    initParallaxEffects();
-    initAnimationOnScroll();
-    initThemeToggle();
-    initContactForm();
-    initLoadingAnimation();
+    
+    // Defer non-critical initializations
+    requestIdleCallback(() => {
+        initTypedText();
+        initScrollReveal();
+        initSmoothScrolling();
+        initParallaxEffects();
+        initAnimationOnScroll();
+        initThemeToggle();
+        initContactForm();
+        initLoadingAnimation();
+    }, { timeout: 2000 });
 }
+
+// Polyfill for requestIdleCallback
+window.requestIdleCallback = window.requestIdleCallback || function(cb) {
+    const start = Date.now();
+    return setTimeout(function() {
+        cb({
+            didTimeout: false,
+            timeRemaining: function() {
+                return Math.max(0, 50.0 - (Date.now() - start));
+            }
+        });
+    }, 1);
+};
 
 /*==== MOBILE MENU TOGGLE ====*/
 function initMobileMenu() {
@@ -51,7 +107,8 @@ function initScrollEffects() {
     const menuIcon = document.querySelector('#menu-icon');
     const navbar = document.querySelector('.navbar');
 
-    window.addEventListener('scroll', function() {
+    // Optimized scroll handler with throttle
+    const handleScroll = throttle(function() {
         const scrollY = window.scrollY;
         
         // Sticky header with enhanced effects
@@ -94,7 +151,9 @@ function initScrollEffects() {
 
         // Floating elements parallax
         updateFloatingElements(scrollY);
-    });
+    }, 16); // ~60fps
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 /*==== FLOATING ELEMENTS PARALLAX ====*/
