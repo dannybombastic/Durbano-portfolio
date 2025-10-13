@@ -11,7 +11,7 @@ on:
       - reopened
       - closed
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
