@@ -1,4 +1,4 @@
-name: CI Deploy VRDISTRIBUCION
+name: portafolio-deploy
 
 on:
   push:
