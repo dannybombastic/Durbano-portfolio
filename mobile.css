@@ -8,28 +8,31 @@
 
 /* ===== GLOBAL MOBILE OVERFLOW FIXES ===== */
 @media (max-width: 768px) {
-    html, body {
+
+
+    html,
+    body {
         overflow-x: hidden !important;
         max-width: 100vw !important;
         width: 100% !important;
         box-sizing: border-box;
     }
-    
+
     * {
         box-sizing: border-box;
     }
-    
+
     /* Prevent any element from causing horizontal overflow */
     * {
         max-width: 100%;
     }
-    
+
     /* Prevent ScrollReveal animations from causing overflow */
     [data-sr] {
         overflow: visible !important;
         transform: none !important;
     }
-    
+
     /* Ensure ScrollReveal elements don't exceed container width */
     .expertise-card[data-sr],
     .service-card[data-sr],
@@ -39,7 +42,7 @@
         overflow-x: hidden !important;
         transform: translateX(0) !important;
     }
-    
+
     /* Solo aplicar overflow a las secciones problemáticas específicas */
     .about,
     .expertise,
@@ -49,7 +52,7 @@
         overflow-x: hidden !important;
         max-width: 100% !important;
     }
-    
+
     .about .container,
     .expertise .container,
     .services .container,
@@ -80,12 +83,14 @@
     }
 
     .header .container {
-        padding: 0 2rem; /* Ensure proper padding for header content */
+        padding: 0 2rem;
+        /* Ensure proper padding for header content */
     }
 
     .logo {
         font-size: 2.2rem;
-        margin-left: 1rem; /* Add left margin for better spacing */
+        margin-left: 1rem;
+        /* Add left margin for better spacing */
     }
 
     #menu-icon {
@@ -150,11 +155,13 @@
 
     .navbar a i {
         font-size: 2rem;
-        display: block; /* Show icons on mobile */
+        display: block;
+        /* Show icons on mobile */
     }
 
     .navbar a span {
-        display: block; /* Show text on mobile */
+        display: block;
+        /* Show text on mobile */
         font-size: 1.4rem;
         margin-top: 0.5rem;
     }
@@ -212,8 +219,10 @@
         overflow: visible !important;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center align the hero text content */
-        text-align: center; /* Center align text */
+        align-items: center;
+        /* Center align the hero text content */
+        text-align: center;
+        /* Center align text */
     }
 
     .hero-title {
@@ -260,17 +269,21 @@
         max-width: 300px;
         margin: 0 auto;
         position: relative;
-        opacity: 1 !important; /* Asegurar opacidad completa */
-        transform: none !important; /* Force remove any scroll reveal transforms */
+        opacity: 1 !important;
+        /* Asegurar opacidad completa */
+        transform: none !important;
+        /* Force remove any scroll reveal transforms */
     }
 
     /* Floating elements - mobile optimization */
     .floating-elements {
-        display: none; /* Completely hide on mobile for performance */
+        display: none;
+        /* Completely hide on mobile for performance */
     }
 
     .floating-element {
-        display: none; /* Hide floating elements on mobile for better performance */
+        display: none;
+        /* Hide floating elements on mobile for better performance */
     }
 
     /* Alternative mobile hero decoration */
@@ -436,6 +449,7 @@
         0% {
             transform: rotate(0deg) translateX(8rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg) translateX(8rem) rotate(-360deg);
         }
@@ -446,6 +460,7 @@
         0% {
             transform: rotate(0deg) translateX(8rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(-360deg) translateX(8rem) rotate(360deg);
         }
@@ -456,6 +471,7 @@
         0% {
             transform: rotate(0deg) translateX(8rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg) translateX(8rem) rotate(-360deg);
         }
@@ -466,6 +482,7 @@
         0% {
             transform: rotate(0deg) translateX(8rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(-360deg) translateX(8rem) rotate(360deg);
         }
@@ -492,7 +509,8 @@
         overflow-y: visible !important;
         max-width: 100vw !important;
         width: 100% !important;
-        position: relative; /* Ensure proper stacking context */
+        position: relative;
+        /* Ensure proper stacking context */
     }
 
     .expertise .container {
@@ -503,11 +521,14 @@
         overflow-x: hidden !important;
         overflow-y: visible !important;
         box-sizing: border-box;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        position: relative; /* Ensure proper containment */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        position: relative;
+        /* Ensure proper containment */
     }
-    
+
     /* Hide WebKit scrollbar for expertise container */
     .expertise .container::-webkit-scrollbar {
         display: none !important;
@@ -531,12 +552,16 @@
         width: 100% !important;
         margin: 0 auto;
         padding: 0;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        position: relative; /* Proper stacking context */
-        contain: layout; /* CSS containment for better performance */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        position: relative;
+        /* Proper stacking context */
+        contain: layout;
+        /* CSS containment for better performance */
     }
-    
+
     /* Hide WebKit scrollbar for expertise grid */
     .expertise-grid::-webkit-scrollbar {
         display: none !important;
@@ -549,12 +574,13 @@
         box-sizing: border-box;
         margin: 0 auto;
         overflow-x: hidden;
-        position: relative; /* Ensure proper positioning */
+        position: relative;
+        /* Ensure proper positioning */
         /* Prevent ScrollReveal from moving cards outside viewport */
         transform: none !important;
         transition: transform 0.3s ease-in-out;
     }
-    
+
     /* Ensure cards don't move during ScrollReveal animations */
     .expertise-card[data-sr] {
         transform: none !important;
@@ -607,10 +633,12 @@
         max-width: 100%;
         overflow-x: hidden !important;
         overflow-y: visible !important;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
     }
-    
+
     /* Hide WebKit scrollbar for services container */
     .services .container::-webkit-scrollbar {
         display: none !important;
@@ -622,7 +650,8 @@
         overflow-x: hidden !important;
         overflow-y: visible !important;
         max-width: 100% !important;
-        contain: layout; /* CSS containment */
+        contain: layout;
+        /* CSS containment */
     }
 
     .service-card {
@@ -634,7 +663,7 @@
         /* Prevent ScrollReveal from moving cards outside viewport */
         transform: none !important;
     }
-    
+
     /* Ensure service cards don't move during ScrollReveal animations */
     .service-card[data-sr] {
         transform: none !important;
@@ -648,7 +677,7 @@
     .expertise {
         padding: 4rem 3% 3rem;
     }
-    
+
     /* Apply overflow fixes to ALL sections with section-header */
     .about .container,
     .expertise .container,
@@ -658,42 +687,48 @@
         padding: 0 1rem;
         overflow-x: hidden !important;
         overflow-y: visible !important;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
     }
-    
+
     /* Hide scrollbars for ALL section containers */
     .about .container::-webkit-scrollbar,
     .expertise .container::-webkit-scrollbar,
     .services .container::-webkit-scrollbar,
     .portfolio .container::-webkit-scrollbar,
     .contact .container::-webkit-scrollbar {
-        display: none !important; /* WebKit */
+        display: none !important;
+        /* WebKit */
     }
-    
+
     .expertise-grid,
     .services-grid {
         gap: 1.5rem;
         overflow-x: hidden !important;
         overflow-y: visible !important;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
         max-width: 100% !important;
         width: 100% !important;
     }
-    
+
     .expertise-grid::-webkit-scrollbar,
     .services-grid::-webkit-scrollbar {
-        display: none !important; /* WebKit */
+        display: none !important;
+        /* WebKit */
     }
-    
+
     .expertise-card,
     .service-card {
         padding: 2rem 1.5rem;
         margin: 0;
         width: 100%;
     }
-    
+
     .services {
         padding: 4rem 3% 3rem;
     }
@@ -725,7 +760,7 @@
     .service-features li {
         font-size: 1.2rem;
     }
-    
+
     /* Eliminar scrollbars de las secciones completas */
     .about,
     .expertise,
@@ -736,7 +771,7 @@
         overflow-y: visible !important;
         max-width: 100% !important;
     }
-    
+
     /* Aplicar overflow solo a contenedores específicos, no a elementos animados */
     .about .container,
     .expertise .container,
@@ -760,7 +795,7 @@
         padding: 6rem 5% 4rem;
         overflow-x: hidden;
     }
-    
+
     .portfolio .container {
         padding: 0 2rem;
         margin: 0 auto;
@@ -824,7 +859,7 @@
         position: relative;
         overflow: hidden;
     }
-    
+
     .contact .container {
         padding: 0 2rem;
         margin: 0 auto;
@@ -865,7 +900,8 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 80px; /* Reduced height for mobile */
+        height: 80px;
+        /* Reduced height for mobile */
         overflow: hidden;
         z-index: 1;
     }
@@ -874,13 +910,16 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 200%; /* Optimized width for mobile */
-        height: 100px; /* Smaller wave height for mobile */
-        background: linear-gradient(90deg, 
-            rgba(102, 126, 234, 0.1) 0%, 
-            rgba(138, 43, 226, 0.1) 50%, 
-            rgba(102, 126, 234, 0.1) 100%);
-        border-radius: 0; /* Remove border-radius for wave effect */
+        width: 200%;
+        /* Optimized width for mobile */
+        height: 100px;
+        /* Smaller wave height for mobile */
+        background: linear-gradient(90deg,
+                rgba(102, 126, 234, 0.1) 0%,
+                rgba(138, 43, 226, 0.1) 50%,
+                rgba(102, 126, 234, 0.1) 100%);
+        border-radius: 0;
+        /* Remove border-radius for wave effect */
         animation: wave-motion-mobile 6s ease-in-out infinite;
     }
 
@@ -905,9 +944,12 @@
 
     /* Mobile-optimized wave animation */
     @keyframes wave-motion-mobile {
-        0%, 100% {
+
+        0%,
+        100% {
             transform: translateX(-25%) translateY(0px);
         }
+
         50% {
             transform: translateX(-75%) translateY(-10px);
         }
@@ -947,17 +989,18 @@
         .wave-container {
             height: 60px;
         }
-        
+
         .wave {
             height: 70px;
-            animation-duration: 8s; /* Slower for performance */
+            animation-duration: 8s;
+            /* Slower for performance */
         }
-        
+
         .wave:nth-child(2) {
             height: 60px;
             animation-duration: 10s;
         }
-        
+
         .wave:nth-child(3) {
             height: 50px;
             animation-duration: 12s;
@@ -984,7 +1027,8 @@
         width: 100px;
         height: 100px;
         margin: 0;
-        animation: none; /* Remove floating animation on mobile */
+        animation: none;
+        /* Remove floating animation on mobile */
         transition: var(--transition-fast);
     }
 
@@ -1016,6 +1060,7 @@
 
 /* ===== GLOBAL MOBILE IMPROVEMENTS ===== */
 @media (max-width: 768px) {
+
     /* Ensure all sections have proper centering */
     section {
         padding-left: 5%;
@@ -1027,9 +1072,10 @@
         margin: 0 auto;
         padding: 0 2rem;
         box-sizing: border-box;
-        overflow-x: hidden; /* Prevent horizontal scrollbars on all containers */
+        overflow-x: hidden;
+        /* Prevent horizontal scrollbars on all containers */
     }
-    
+
     /* Explicit rules for all section containers */
     .about .container,
     .expertise .container,
@@ -1039,10 +1085,12 @@
         overflow-x: hidden !important;
         overflow-y: visible !important;
         max-width: 100% !important;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
     }
-    
+
     /* WebKit scrollbar hiding for all section containers */
     .about .container::-webkit-scrollbar,
     .expertise .container::-webkit-scrollbar,
@@ -1073,25 +1121,29 @@
 
 /* ===== PERFORMANCE OPTIMIZATIONS FOR MOBILE ===== */
 @media (max-width: 768px) {
+
     /* Reduce animation complexity for better performance */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
     }
 
     /* Disable heavy animations on small screens */
     @media (max-width: 480px) {
+
         .floating-element,
         .floating-elements {
             animation: none;
             transform: none;
         }
-        
+
         /* Simplify wave animations for performance */
         .wave {
             animation-duration: 10s;
         }
-        
+
         /* Reduce backdrop blur for performance */
         .glass {
             backdrop-filter: blur(5px);
@@ -1116,8 +1168,10 @@
 /* ===== SMALL MOBILE (480px and below) ===== */
 @media (max-width: 480px) {
     .container {
-        padding: 0 4%; /* Increase padding for better spacing */
-        margin: 0 auto; /* Ensure centering */
+        padding: 0 4%;
+        /* Increase padding for better spacing */
+        margin: 0 auto;
+        /* Ensure centering */
     }
 
     .header {
@@ -1125,12 +1179,14 @@
     }
 
     .header .container {
-        padding: 0 1.5rem; /* Ensure header content has proper spacing */
+        padding: 0 1.5rem;
+        /* Ensure header content has proper spacing */
     }
 
     .logo {
         font-size: 2rem;
-        margin-left: 1.5rem; /* Increase left margin for better positioning */
+        margin-left: 1.5rem;
+        /* Increase left margin for better positioning */
     }
 
     .menu-icon {
@@ -1191,7 +1247,7 @@
 
     /* Contact wave container */
     .wave-container {
-        width: 250px;
+        width: 100%;
         height: 250px;
     }
 
@@ -1220,7 +1276,8 @@
     .container {
         max-width: 100%;
         padding: 0 4%;
-        overflow-x: hidden; /* Prevent horizontal scrollbars */
+        overflow-x: hidden;
+        /* Prevent horizontal scrollbars */
     }
 
     .header {
@@ -1305,6 +1362,7 @@
 
 /* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
 @media (hover: none) and (pointer: coarse) {
+
     .btn,
     .navbar a,
     .expertise-card,
@@ -1369,6 +1427,7 @@
 
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -1386,6 +1445,7 @@
 
 /* ===== PRINT STYLES ===== */
 @media print {
+
     .header,
     .floating-element,
     .wave-container,
@@ -1437,7 +1497,8 @@
     .hero-visual {
         flex: 0 0 300px;
         max-width: 300px;
-        transform: none !important; /* Ensure clean centering */
+        transform: none !important;
+        /* Ensure clean centering */
     }
 
     /* Tech Circle Smaller Mobile Optimization */
@@ -1507,6 +1568,7 @@
         0% {
             transform: rotate(0deg) translateX(6rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg) translateX(6rem) rotate(-360deg);
         }
@@ -1517,6 +1579,7 @@
         0% {
             transform: rotate(0deg) translateX(6rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(-360deg) translateX(6rem) rotate(360deg);
         }
@@ -1527,6 +1590,7 @@
         0% {
             transform: rotate(0deg) translateX(6rem) rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg) translateX(6rem) rotate(-360deg);
         }
@@ -1575,6 +1639,7 @@
 
 /* ===== PERFORMANCE OPTIMIZATIONS ===== */
 @media (max-width: 768px) {
+
     /* Reduce animations on mobile for better performance */
     .floating-element {
         display: none;
@@ -1623,6 +1688,7 @@
 
 /* ===== ACCESSIBILITY IMPROVEMENTS ===== */
 @media (max-width: 768px) {
+
     /* Larger focus indicators */
     .btn:focus,
     .navbar a:focus,
@@ -1989,52 +2055,52 @@
     .footer {
         padding: 3rem 0 2rem;
     }
-    
+
     .footer .container {
         padding: 0 1.5rem;
     }
-    
+
     .footer-content {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
         margin-bottom: 2rem;
     }
-    
+
     .footer-brand h3 {
         font-size: 2rem;
         margin-bottom: 0.5rem;
     }
-    
+
     .footer-brand p {
         font-size: 1rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .footer-social {
         justify-content: center;
         flex-wrap: wrap;
         gap: 1.5rem;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
         padding-top: 2rem;
     }
-    
+
     .footer-bottom p {
         font-size: 0.9rem;
         max-width: 100%;
         word-wrap: break-word;
     }
-    
+
     .back-to-top {
         width: 3.5rem;
         height: 3.5rem;
     }
-    
+
     .back-to-top i {
         font-size: 1.5rem;
     }
@@ -2044,49 +2110,49 @@
     .footer {
         padding: 2.5rem 0 1.5rem;
     }
-    
+
     .footer .container {
         padding: 0 1rem;
     }
-    
+
     .footer-content {
         gap: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .footer-brand h3 {
         font-size: 1.8rem;
     }
-    
+
     .footer-brand p {
         font-size: 0.9rem;
     }
-    
+
     .footer-social {
         gap: 1rem;
     }
-    
+
     .footer-social .social-link {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
-    
+
     .footer-bottom {
         gap: 1rem;
         padding-top: 1.5rem;
     }
-    
+
     .footer-bottom p {
         font-size: 0.8rem;
         line-height: 1.4;
     }
-    
+
     .back-to-top {
         width: 3rem;
         height: 3rem;
     }
-    
+
     .back-to-top i {
         font-size: 1.3rem;
     }

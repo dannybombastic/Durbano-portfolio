@@ -775,12 +775,12 @@ function initServiceLearnMore() {
             resources: [
                 {
                     name: 'Microsoft ALM Guide',
-                    url: 'https://docs.microsoft.com/en-us/devops/develop/what-is-application-lifecycle-management',
+                    url: 'https://learn.microsoft.com/en-us/devops/',
                     description: 'Comprehensive guide to ALM concepts and practices'
                 },
                 {
                     name: 'Atlassian ALM Best Practices',
-                    url: 'https://www.atlassian.com/continuous-delivery/principles/application-lifecycle-management',
+                    url: 'https://www.atlassian.com/continuous-delivery/principles/pipeline',
                     description: 'Industry best practices for application lifecycle'
                 },
                 {

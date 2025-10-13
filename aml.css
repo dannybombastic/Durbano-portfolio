@@ -96,6 +96,7 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
     transition: var(--transition-smooth);
+    padding: 20px 50px 0px 50px;
 }
 
 .header .container {
@@ -1116,6 +1117,7 @@ section {
 .service-features {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     gap: 1rem;
     justify-content: center;
     margin-bottom: 3rem;
