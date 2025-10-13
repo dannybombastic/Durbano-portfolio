@@ -39,7 +39,7 @@ jobs:
             first_ssh: |
               rm -rf /home/dannybombastic/durbanod/durbanod/*
             scp: |
-                "./Durbano-portfolio/*" => /home/dannybombastic/durbanod/durbanod
+                "*" => /home/dannybombastic/durbanod/durbanod
             last_ssh: |
                 cd /home/dannybombastic/durbanod
                 docker compose up -d --build
