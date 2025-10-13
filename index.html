@@ -10,7 +10,11 @@
     <meta name="theme-color" content="#667eea">
 
     <title>Daniel Urbano - DevOps Professional Portfolio</title>
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.svg">
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
 
@@ -91,31 +95,34 @@
     <link rel="stylesheet" href="aml.css" fetchpriority="high" />
     <link rel="stylesheet" href="mobile.css" media="all" />
 
-    <!-- BoxIcon - Load asynchronously with low priority -->
-    <link rel="preload" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'" fetchpriority="low">
+    <!-- BoxIcon - Load asynchronously after page load -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" media="print" onload="this.media='all';this.onload=null;">
     <noscript>
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     </noscript>
 
-    <!-- Google tag (gtag.js) - Async -->
-<!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KNS3BRP');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Google Analytics - Only loads if connection is available -->
     <script>
+        // Only load analytics if not blocked
         window.dataLayer = window.dataLayer || [];
         function gtag() {
             dataLayer.push(arguments);
         }
-        gtag("js", new Date());
-        gtag("config", "UA-68999635-3");
+        
+        // Defer analytics loading
+        if (navigator.onLine) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-68999635-3';
+            script.onerror = function() {
+                console.log('Analytics blocked or unavailable');
+            };
+            document.head.appendChild(script);
+            
+            gtag("js", new Date());
+            gtag("config", "UA-68999635-3");
+        }
     </script>
 </head>
 
