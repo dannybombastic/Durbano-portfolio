@@ -23,8 +23,9 @@ jobs:
           
       - name: copy into folder dependencies
         run: |
-            echo $PWD
+            
             cd ${{ github.workspace }}
+            echo $PWD
             ls -la
 
       - name: Publish
