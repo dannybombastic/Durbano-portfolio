@@ -1,0 +1,19 @@
+<nav class="nav">
+  <button 
+    class="menu-toggle"
+    [class.active]="isMenuOpen()"
+    (click)="toggleMenu()"
+    aria-label="Toggle menu">
+    <span class="menu-icon"></span>
+  </button>
+
+  <div class="nav-content" [class.open]="isMenuOpen()">
+    <app-nav-list 
+      [items]="navItems" 
+      (itemClicked)="closeMenu()">
+    </app-nav-list>
+    <div class="nav-social">
+      <app-social-links [links]="socialLinks()"></app-social-links>
+    </div>
+  </div>
+</nav>
