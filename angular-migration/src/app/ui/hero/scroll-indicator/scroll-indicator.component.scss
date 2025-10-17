@@ -1,0 +1,101 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/animations' as *;
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: $transition-smooth;
+  z-index: 10;
+
+  &:hover {
+    transform: translateX(-50%) translateY(-4px);
+
+    .scroll-line {
+      height: 40px;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.3)
+      );
+    }
+
+    .scroll-text {
+      color: white;
+    }
+  }
+}
+
+.scroll-line {
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.2)
+  );
+  border-radius: 2px;
+  position: relative;
+  transition: $transition-smooth;
+  animation: scrollBounce 2s ease-in-out infinite;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: scrollDot 2s ease-in-out infinite;
+  }
+}
+
+.scroll-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: $transition-smooth;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@include responsive(md, 'max') {
+  .scroll-indicator {
+    bottom: 1rem;
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+  }
+}
