@@ -37,12 +37,17 @@
                 [href]="element.link" 
                 class="floating-contact-element"
                 [class]="element.class"
-                target="_blank"
-                rel="noopener noreferrer">
+                [target]="element.isChat ? '_self' : '_blank'"
+                [rel]="element.isChat ? '' : 'noopener noreferrer'"
+                (click)="handleFloatingClick(element, $event)">
                 <i class='bx' [class]="element.icon"></i>
                 <span>{{ element.text }}</span>
               </a>
             }
+          </div>
+          <div class="central-contact-hub">
+            <i class='bx bx-user-voice'></i>
+            <span>Let's Connect</span>
           </div>
         </div>
       </div>

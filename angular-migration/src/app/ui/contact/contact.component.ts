@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '@app/core/services/modal.service';
 
 interface ContactCard {
   icon: string;
@@ -15,6 +16,7 @@ interface FloatingElement {
   text: string;
   class: string;
   link: string;
+  isChat?: boolean;
 }
 
 @Component({
@@ -77,5 +79,21 @@ export class ContactComponent {
       class: 'contact-4',
       link: 'https://github.com/dannybombastic',
     },
+    {
+      icon: 'bx-message-dots',
+      text: 'Chat',
+      class: 'contact-5',
+      link: '#',
+      isChat: true,
+    },
   ]);
+
+  constructor(private modalService: ModalService) {}
+
+  protected handleFloatingClick(element: FloatingElement, event: Event): void {
+    if (element.isChat) {
+      event.preventDefault();
+      this.modalService.openChatModal();
+    }
+  }
 }

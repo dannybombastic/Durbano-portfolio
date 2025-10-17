@@ -1,6 +1,8 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ModalService } from '@app/core/services/modal.service';
+import { SERVICE_RESOURCES } from '@app/core/constants/learning-resources';
 
 interface ServiceCard {
   icon: string;
@@ -57,7 +59,12 @@ export class ServicesComponent {
     },
   ]);
 
-  protected handleServiceClick(service: string): void {
-    console.log('Service clicked:', service);
+  constructor(private modalService: ModalService) {}
+
+  protected handleServiceClick(serviceType: string): void {
+    const resources = SERVICE_RESOURCES[serviceType];
+    if (resources) {
+      this.modalService.openLearningModal(resources);
+    }
   }
 }

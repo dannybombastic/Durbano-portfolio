@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '@app/core/services/modal.service';
+import { PROJECT_RESOURCES } from '@app/core/constants/learning-resources';
 
 interface ProjectAchievement {
   text: string;
@@ -127,7 +129,12 @@ export class PortfolioComponent {
     },
   ]);
 
-  protected handleProjectClick(project: string): void {
-    console.log('Project clicked:', project);
+  constructor(private modalService: ModalService) {}
+
+  protected handleProjectClick(projectType: string): void {
+    const resources = PROJECT_RESOURCES[projectType];
+    if (resources) {
+      this.modalService.openLearningModal(resources);
+    }
   }
 }
