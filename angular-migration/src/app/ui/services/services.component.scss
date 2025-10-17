@@ -4,7 +4,7 @@
 
 .services {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #1a202c;
   position: relative;
 
   &::before {
@@ -28,7 +28,7 @@
 .section-title {
   font-size: 3rem;
   font-weight: 800;
-  color: $text-dark;
+  color: white;
   margin-bottom: 1rem;
 
   span {
@@ -55,9 +55,11 @@
 
 .service-card {
   padding: 2.5rem;
-  background: white;
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   transition: $transition-smooth;
   animation: fadeInUp 0.8s ease-out both;
   display: flex;
@@ -71,7 +73,7 @@
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 
     .service-icon {
       transform: scale(1.1) rotate(-5deg);
@@ -112,7 +114,7 @@
 .service-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: $text-dark;
+  color: white;
   margin-bottom: 1rem;
 }
 
@@ -133,11 +135,11 @@
 
 .feature {
   padding: 0.5rem 1rem;
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(102, 126, 234, 0.2);
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 600;
-  color: $text-dark;
+  color: white;
 }
 
 @include responsive(lg, 'max') {
