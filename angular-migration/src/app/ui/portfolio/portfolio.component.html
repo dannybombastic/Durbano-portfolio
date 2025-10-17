@@ -1,0 +1,48 @@
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">DevOps <span>Projects</span></h2>
+      <p class="section-subtitle">Real-world infrastructure automation and CI/CD implementations</p>
+    </div>
+    <div class="portfolio-grid">
+      @for (project of projects(); track project.title) {
+        <div class="portfolio-project">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class='bx' [class]="project.icon"></i>
+            </div>
+            <div class="project-tech-stack">
+              @for (tech of project.techStack; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-achievements">
+              @for (achievement of project.achievements; track achievement.text) {
+                <div class="achievement">
+                  <i class='bx bx-check-circle'></i>
+                  <span>{{ achievement.text }}</span>
+                </div>
+              }
+            </div>
+            <div class="project-links">
+              @for (link of project.links; track link.text) {
+                <a 
+                  href="#" 
+                  class="project-link learn-project" 
+                  [attr.data-project]="link.dataProject"
+                  (click)="handleProjectClick(link.dataProject); $event.preventDefault()">
+                  <i class='bx' [class]="link.icon"></i>
+                  <span>{{ link.text }}</span>
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

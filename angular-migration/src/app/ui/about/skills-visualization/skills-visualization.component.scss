@@ -1,0 +1,206 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/animations' as *;
+
+.skills-visualization {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.skill-orbit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.central-profile {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: white;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 2;
+
+  i {
+    font-size: 4rem;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $text-dark;
+  }
+
+  small {
+    font-size: 0.875rem;
+    color: $text-muted;
+    font-weight: 500;
+  }
+}
+
+.skill-node {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: $transition-smooth;
+  cursor: pointer;
+
+  i {
+    font-size: 2rem;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $text-dark;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 48px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+  }
+}
+
+// Positions for skill nodes
+.skill-1 {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 3s ease-in-out infinite;
+}
+
+.skill-2 {
+  top: 25%;
+  right: 5%;
+  animation: float 3.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.skill-3 {
+  bottom: 25%;
+  right: 5%;
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.skill-4 {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 3.2s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.skill-5 {
+  bottom: 25%;
+  left: 5%;
+  animation: float 3.8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.skill-6 {
+  top: 25%;
+  left: 5%;
+  animation: float 3.3s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+@include responsive(lg, 'max') {
+  .skills-visualization {
+    max-width: 400px;
+  }
+
+  .central-profile {
+    width: 150px;
+    height: 150px;
+
+    i {
+      font-size: 3rem;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+
+    small {
+      font-size: 0.75rem;
+    }
+  }
+
+  .skill-node {
+    width: 80px;
+    height: 80px;
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@include responsive(md, 'max') {
+  .skills-visualization {
+    max-width: 320px;
+  }
+
+  .central-profile {
+    width: 120px;
+    height: 120px;
+
+    i {
+      font-size: 2.5rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+
+  .skill-node {
+    width: 70px;
+    height: 70px;
+
+    i {
+      font-size: 1.25rem;
+    }
+
+    span {
+      font-size: 0.65rem;
+    }
+  }
+}

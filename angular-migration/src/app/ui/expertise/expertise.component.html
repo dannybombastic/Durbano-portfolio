@@ -1,0 +1,19 @@
+<section class="expertise" id="expertise">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Technical <span>Expertise</span></h2>
+      <p class="section-subtitle">Core competencies that drive results</p>
+    </div>
+    <div class="expertise-grid">
+      @for (item of expertise(); track item.title) {
+        <div class="expertise-card">
+          <div class="card-icon">
+            <i class='bx' [class]="item.icon"></i>
+          </div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

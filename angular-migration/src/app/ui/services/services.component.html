@@ -1,0 +1,31 @@
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My <span>Services</span></h2>
+      <p class="section-subtitle">Comprehensive DevOps solutions for your business</p>
+    </div>
+    <div class="services-grid">
+      @for (service of services(); track service.title) {
+        <div class="service-card">
+          <div class="service-icon">
+            <i class='bx' [class]="service.icon"></i>
+          </div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <div class="service-features">
+            @for (feature of service.features; track feature) {
+              <span class="feature">{{ feature }}</span>
+            }
+          </div>
+          <app-button 
+            variant="primary" 
+            size="md" 
+            [fullWidth]="true"
+            (clicked)="handleServiceClick(service.dataService)">
+            Learn More
+          </app-button>
+        </div>
+      }
+    </div>
+  </div>
+</section>

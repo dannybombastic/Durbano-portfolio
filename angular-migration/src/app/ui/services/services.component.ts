@@ -1,30 +1,64 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '@app/shared/components/button/button.component';
+
+interface ServiceCard {
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+  dataService: string;
+}
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <section id="services" class="services">
-      <div class="container">
-        <h2>Services Section</h2>
-        <p>Coming soon...</p>
-      </div>
-    </section>
-  `,
-  styles: [`
-    .services {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      background: #1a202c;
-      color: white;
-      text-align: center;
-    }
-  `],
+  imports: [CommonModule, ButtonComponent],
+  templateUrl: './services.component.html',
+  styleUrl: './services.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ServicesComponent {}
+export class ServicesComponent {
+  protected readonly services = signal<ServiceCard[]>([
+    {
+      icon: 'bx-recycle',
+      title: 'Application Lifecycle',
+      description:
+        'Complete ALM methodology and tools to manage application lifecycle from development to maintenance.',
+      features: ['Version Control', 'Release Management', 'Quality Assurance'],
+      dataService: 'alm',
+    },
+    {
+      icon: 'bx-pie-chart',
+      title: 'Monitoring & Analytics',
+      description:
+        'Real-time system monitoring with Prometheus, Grafana, and ELK stack for optimal performance insights.',
+      features: ['Performance Metrics', 'Log Analysis', 'Alert Management'],
+      dataService: 'monitoring',
+    },
+    {
+      icon: 'bx-support',
+      title: 'DevOps Consultation',
+      description:
+        'Expert guidance on DevOps implementation, best practices, and organizational transformation.',
+      features: ['Process Optimization', 'Team Training', 'Strategy Planning'],
+      dataService: 'consultation',
+    },
+    {
+      icon: 'bx-server',
+      title: 'Infrastructure as Code',
+      description:
+        'Automated infrastructure provisioning and management using Terraform, Ansible, and cloud-native tools.',
+      features: [
+        'Cloud Automation',
+        'Infrastructure Scaling',
+        'Cost Optimization',
+      ],
+      dataService: 'infrastructure',
+    },
+  ]);
+
+  protected handleServiceClick(service: string): void {
+    console.log('Service clicked:', service);
+  }
+}

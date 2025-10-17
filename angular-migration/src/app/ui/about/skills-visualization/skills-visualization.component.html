@@ -1,0 +1,15 @@
+<div class="skills-visualization">
+  <div class="skill-orbit">
+    <div class="central-profile">
+      <i class='bx bx-user-circle'></i>
+      <span>Daniel Urbano</span>
+      <small>DevOps Engineer</small>
+    </div>
+    @for (skill of skills(); track skill.name) {
+      <div class="skill-node" [class]="skill.class">
+        <i class='bx' [class]="skill.icon"></i>
+        <span>{{ skill.name }}</span>
+      </div>
+    }
+  </div>
+</div>
