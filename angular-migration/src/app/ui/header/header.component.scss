@@ -27,6 +27,17 @@
   gap: 0.5rem;
   font-size: 1.5rem;
   font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-2px);
+    
+    .logo-highlight {
+      filter: brightness(1.2);
+    }
+  }
 }
 
 .logo-text {

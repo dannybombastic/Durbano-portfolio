@@ -7,6 +7,11 @@ export const routes: Routes = [
     title: 'Daniel Urbano - DevOps Professional Portfolio',
   },
   {
+    path: 'learning-journey',
+    loadComponent: () => import('./components/learning-journey/learning-journey').then((m) => m.LearningJourneyComponent),
+    title: 'Learning Journey - Daniel Urbano',
+  },
+  {
     path: '**',
     redirectTo: '',
   },

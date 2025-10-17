@@ -1,0 +1,61 @@
+<!-- Learning Hero Section -->
+<section class="learning-hero">
+  <!-- Floating bubbles -->
+  @for (bubble of bubbles; track bubble) {
+    <div class="bubble" [style.left.%]="bubble.left" [style.animation-delay.s]="bubble.delay"></div>
+  }
+  
+  <!-- Floating particles -->
+  @for (particle of particles; track particle) {
+    <div 
+      class="particle" 
+      [style.left.%]="particle.left" 
+      [style.top.%]="particle.top"
+      [style.width.px]="particle.size"
+      [style.height.px]="particle.size"
+      [style.animation-delay.s]="particle.delay">
+    </div>
+  }
+  
+  <div class="learning-content">
+    <h1 class="learning-title">Learning Journey</h1>
+    <p class="learning-subtitle">
+      From curious beginner to seasoned DevOps engineer - discover the milestones, 
+      challenges, and breakthroughs that shaped my professional evolution
+    </p>
+    <a routerLink="/" class="back-btn">
+      <i class='bx bx-arrow-back'></i>
+      <span>Back to Portfolio</span>
+    </a>
+  </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section">
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+    
+    @for (item of timelineItems; track item.id; let i = $index) {
+      <div class="timeline-item" [class.animate]="item.isVisible">
+        <div class="timeline-content">
+          <div class="timeline-date">
+            <i class='bx bx-calendar'></i>
+            <span>{{ item.date }}</span>
+          </div>
+          <h3 class="timeline-title">{{ item.title }}</h3>
+          <p class="timeline-description">{{ item.description }}</p>
+          <div class="skills-section">
+            @for (skill of item.skills; track skill.name) {
+              <span class="skills-highlight">
+                <i [class]="skill.icon"></i> {{ skill.name }}
+              </span>
+            }
+          </div>
+        </div>
+        <div class="timeline-icon">
+          <i [class]="item.iconClass"></i>
+        </div>
+      </div>
+    }
+  </div>
+</section>

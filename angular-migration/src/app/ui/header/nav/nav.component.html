@@ -9,7 +9,7 @@
 
   <div class="nav-content" [class.open]="isMenuOpen()">
     <app-nav-list 
-      [items]="navItems" 
+      [items]="navItems()" 
       (itemClicked)="closeMenu()">
     </app-nav-list>
     <div class="nav-social">
