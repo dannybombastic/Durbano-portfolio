@@ -9,7 +9,6 @@ interface SkillNode {
 
 @Component({
   selector: 'app-skills-visualization',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './skills-visualization.component.html',
   styleUrl: './skills-visualization.component.scss',

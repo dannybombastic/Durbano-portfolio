@@ -5,7 +5,6 @@ import { NavItem } from '../nav.component';
 
 @Component({
   selector: 'app-nav-list',
-  standalone: true,
   imports: [CommonModule, NavItemComponent],
   templateUrl: './nav-list.component.html',
   styleUrl: './nav-list.component.scss',

@@ -12,7 +12,6 @@ interface ServiceCard {
 
 @Component({
   selector: 'app-services',
-  standalone: true,
   imports: [CommonModule, ButtonComponent],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',

@@ -8,7 +8,6 @@ interface StatItem {
 
 @Component({
   selector: 'app-stats-grid',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './stats-grid.component.html',
   styleUrl: './stats-grid.component.scss',

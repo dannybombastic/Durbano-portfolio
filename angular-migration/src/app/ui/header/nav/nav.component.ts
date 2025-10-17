@@ -11,7 +11,6 @@ export interface NavItem {
 
 @Component({
   selector: 'app-nav',
-  standalone: true,
   imports: [CommonModule, NavListComponent, SocialLinksComponent],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',

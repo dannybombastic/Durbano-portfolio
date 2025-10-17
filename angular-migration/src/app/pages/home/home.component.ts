@@ -9,7 +9,6 @@ import { SeoService, SeoMetaTags } from '@app/core/services/seo.service';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [
     HeroComponent,
     AboutComponent,

@@ -6,7 +6,6 @@ import { SOCIAL_LINKS } from '@app/core/constants/portfolio-data';
 
 @Component({
   selector: 'app-hero-content',
-  standalone: true,
   imports: [CommonModule, ButtonComponent, SocialLinksComponent],
   templateUrl: './hero-content.component.html',
   styleUrl: './hero-content.component.scss',

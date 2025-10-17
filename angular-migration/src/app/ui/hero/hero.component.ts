@@ -6,7 +6,6 @@ import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.co
 
 @Component({
   selector: 'app-hero',
-  standalone: true,
   imports: [CommonModule, HeroContentComponent, HeroVisualComponent, ScrollIndicatorComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',

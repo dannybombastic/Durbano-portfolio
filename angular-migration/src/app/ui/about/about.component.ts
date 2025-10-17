@@ -6,7 +6,6 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
 
 @Component({
   selector: 'app-about',
-  standalone: true,
   imports: [
     CommonModule,
     SkillsVisualizationComponent,

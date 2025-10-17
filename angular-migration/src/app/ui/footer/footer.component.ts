@@ -4,7 +4,6 @@ import { SOCIAL_LINKS } from '@app/core/constants/portfolio-data';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [SocialLinksComponent],
   template: `
     <footer class="footer">

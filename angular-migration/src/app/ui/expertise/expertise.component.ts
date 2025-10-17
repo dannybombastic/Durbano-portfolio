@@ -9,7 +9,6 @@ interface ExpertiseCard {
 
 @Component({
   selector: 'app-expertise',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './expertise.component.html',
   styleUrl: './expertise.component.scss',

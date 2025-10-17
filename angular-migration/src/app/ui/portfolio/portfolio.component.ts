@@ -22,7 +22,6 @@ interface PortfolioProject {
 
 @Component({
   selector: 'app-portfolio',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',

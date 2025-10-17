@@ -4,7 +4,6 @@ import { SocialLinkData } from '@app/core/models/social-link.interface';
 
 @Component({
   selector: 'app-social-links',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './social-links.component.html',
   styleUrl: './social-links.component.scss',

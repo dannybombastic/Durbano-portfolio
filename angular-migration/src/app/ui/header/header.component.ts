@@ -5,7 +5,6 @@ import { SOCIAL_LINKS } from '@app/core/constants/portfolio-data';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [CommonModule, NavComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

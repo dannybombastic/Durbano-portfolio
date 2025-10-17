@@ -8,7 +8,6 @@ import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-scroll-indicator',
-  standalone: true,
   imports: [],
   templateUrl: './scroll-indicator.component.html',
   styleUrl: './scroll-indicator.component.scss',
