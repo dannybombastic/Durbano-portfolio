@@ -230,6 +230,13 @@
     animation: float 3.2s ease-in-out infinite;
     animation-delay: 1.5s;
   }
+
+  &.contact-5 {
+    bottom: 30%;
+    left: 10%;
+    animation: float 3.8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
 }
 
 @include responsive(lg, 'max') {

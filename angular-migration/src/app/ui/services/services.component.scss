@@ -78,6 +78,10 @@
       background: $primary-gradient;
 
       i {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: white;
+        background-clip: unset;
         color: white;
       }
     }
