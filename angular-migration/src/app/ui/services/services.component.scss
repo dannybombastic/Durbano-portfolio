@@ -1,0 +1,176 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/animations' as *;
+
+.services {
+  padding: 6rem 2rem;
+  background: #1a202c;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+
+  span {
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: $text-muted;
+  font-weight: 500;
+}
+
+.services-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  padding: 2.5rem;
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: $transition-smooth;
+  animation: fadeInUp 0.8s ease-out both;
+  display: flex;
+  flex-direction: column;
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+    .service-icon {
+      transform: scale(1.1) rotate(-5deg);
+      background: $primary-gradient;
+
+      i {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: white;
+        background-clip: unset;
+        color: white;
+      }
+    }
+  }
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: $transition-smooth;
+
+  i {
+    font-size: 2.5rem;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: $transition-smooth;
+  }
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $text-muted;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.service-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature {
+  padding: 0.5rem 1rem;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+@include responsive(lg, 'max') {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include responsive(md, 'max') {
+  .services {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+  }
+}

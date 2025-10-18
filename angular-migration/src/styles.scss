@@ -1,0 +1,40 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+@use 'animations' as *;
+@use 'utilities' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: 1.6;
+  color: $text-light;
+  background: $bg-dark;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, $primary-color, $secondary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7c92f5, #f76d7d);
+}

@@ -1,0 +1,51 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@include responsive(lg, 'max') {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+}
+
+@include responsive(md, 'max') {
+  .hero {
+    padding: 6rem 1.5rem 3rem;
+  }
+}

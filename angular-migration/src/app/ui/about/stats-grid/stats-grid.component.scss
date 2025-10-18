@@ -1,0 +1,62 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/animations' as *;
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+  }
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: $text-muted;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@include responsive(md, 'max') {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-item {
+    padding: 1rem;
+  }
+}

@@ -6,7 +6,6 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
       - reopened
       - closed
     branches:
@@ -18,17 +17,36 @@ jobs:
     environment: portafolio
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: angular-migration/package-lock.json
           
-      - name: copy into folder dependencies
+      - name: Install dependencies
         run: |
-            
-            cd ${{ github.workspace }}
-            echo $PWD
-            ls -la
+          cd angular-migration
+          npm ci
+          
+      - name: Build Angular app
+        run: |
+          cd angular-migration
+          npm run build
+          echo "Build completed successfully"
+          ls -la dist/daniel-urbano-portfolio/browser
+          
+      - name: Prepare deployment files
+        run: |
+          cd ${{ github.workspace }}
+          echo "Current directory contents:"
+          ls -la
+          echo "Angular build output:"
+          ls -la angular-migration/dist/daniel-urbano-portfolio/browser
 
-      - name: Publish
+      - name: Deploy to server
         uses: dannybombastic/ssh-scp-ssh-pipelines@v1.1.5
         with:
             host: ${{ secrets.REMOTE_HOST }}
@@ -37,9 +55,16 @@ jobs:
             pass: ${{ secrets.REMOTE_PASS }}
             connect_timeout: 30s
             first_ssh: |
+              echo "Cleaning old deployment..."
               rm -rf /home/dannybombastic/durbanod/durbanod/*
+              echo "Cleanup completed"
             scp: |
-                "*" => /home/dannybombastic/durbanod/durbanod
+                "angular-migration/dist/daniel-urbano-portfolio/browser/*" => /home/dannybombastic/durbanod/durbanod
             last_ssh: |
+                echo "Verifying deployment..."
+                ls -la /home/dannybombastic/durbanod/durbanod
+                echo "Rebuilding and restarting Docker container..."
                 cd /home/dannybombastic/durbanod
                 docker compose up -d --build
+                echo "Deployment completed successfully!"
+                docker compose ps

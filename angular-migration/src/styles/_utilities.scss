@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Spacing utilities
+@for $i from 1 through 8 {
+  .mt-#{$i} {
+    margin-top: #{$i * 0.5}rem;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i * 0.5}rem;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i * 0.5}rem;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i * 0.5}rem;
+  }
+}

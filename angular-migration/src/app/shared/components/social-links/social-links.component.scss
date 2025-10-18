@@ -1,0 +1,28 @@
+@use '../../../../styles/variables' as *;
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: $text-light;
+  font-size: 1.5rem;
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: $primary-gradient;
+    box-shadow: $glow-primary;
+  }
+}
