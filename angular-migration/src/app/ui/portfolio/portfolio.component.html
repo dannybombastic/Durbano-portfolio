@@ -23,7 +23,7 @@
             <div class="project-achievements">
               @for (achievement of project.achievements; track achievement.text) {
                 <div class="achievement">
-                  <i class='bx bx-check-circle'></i>
+                  <i class='bx' [class]="achievement.icon"></i>
                   <span>{{ achievement.text }}</span>
                 </div>
               }
@@ -33,8 +33,8 @@
                 <a 
                   href="#" 
                   class="project-link learn-project" 
-                  [attr.data-project]="link.dataProject"
-                  (click)="handleProjectClick(link.dataProject); $event.preventDefault()">
+                  [attr.data-project]="link.projectId"
+                  (click)="handleProjectClick(link.projectId); $event.preventDefault()">
                   <i class='bx' [class]="link.icon"></i>
                   <span>{{ link.text }}</span>
                 </a>

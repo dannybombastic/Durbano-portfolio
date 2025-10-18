@@ -1,10 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface StatItem {
-  number: string;
-  label: string;
-}
+import { STATS_DATA } from '@app/core/constants/portfolio-data';
+import { StatData } from '@app/core/models/stat.interface';
 
 @Component({
   selector: 'app-stats-grid',
@@ -14,9 +11,5 @@ interface StatItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatsGridComponent {
-  protected readonly stats = signal<StatItem[]>([
-    { number: '5+', label: 'Years Experience' },
-    { number: '50+', label: 'Azure Projects' },
-    { number: '99.9%', label: 'Cloud Uptime' },
-  ]);
+  protected readonly stats = signal<readonly StatData[]>(STATS_DATA);
 }
