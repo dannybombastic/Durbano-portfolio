@@ -22,37 +22,37 @@ interface ServiceCard {
 export class ServicesComponent {
   protected readonly services = signal<ServiceCard[]>([
     {
-      icon: 'bx-recycle',
-      title: 'Application Lifecycle',
+      icon: 'bxl-microsoft',
+      title: 'Azure DevOps Solutions',
       description:
-        'Complete ALM methodology and tools to manage application lifecycle from development to maintenance.',
-      features: ['Version Control', 'Release Management', 'Quality Assurance'],
+        'Complete Azure DevOps implementation including pipelines, repos, boards, and artifacts for seamless software delivery.',
+      features: ['Azure Pipelines', 'Azure Repos & Boards', 'Release Management'],
       dataService: 'alm',
     },
     {
       icon: 'bx-pie-chart',
-      title: 'Monitoring & Analytics',
+      title: 'Azure Monitoring & Analytics',
       description:
-        'Real-time system monitoring with Prometheus, Grafana, and ELK stack for optimal performance insights.',
-      features: ['Performance Metrics', 'Log Analysis', 'Alert Management'],
+        'Comprehensive monitoring with Azure Monitor, Application Insights, and Log Analytics for optimal cloud performance.',
+      features: ['Application Insights', 'Log Analytics', 'Azure Alerts'],
       dataService: 'monitoring',
     },
     {
       icon: 'bx-support',
-      title: 'DevOps Consultation',
+      title: 'Azure Cloud Consultation',
       description:
-        'Expert guidance on DevOps implementation, best practices, and organizational transformation.',
-      features: ['Process Optimization', 'Team Training', 'Strategy Planning'],
+        'Expert guidance on Azure migration, cloud-native architecture, and DevOps best practices for organizational transformation.',
+      features: ['Azure Migration', 'Cloud Architecture', 'DevOps Strategy'],
       dataService: 'consultation',
     },
     {
       icon: 'bx-server',
-      title: 'Infrastructure as Code',
+      title: 'Azure Infrastructure as Code',
       description:
-        'Automated infrastructure provisioning and management using Terraform, Ansible, and cloud-native tools.',
+        'Automated Azure infrastructure using ARM Templates, Bicep, and Terraform for scalable and repeatable deployments.',
       features: [
-        'Cloud Automation',
-        'Infrastructure Scaling',
+        'Azure ARM & Bicep',
+        'Azure Automation',
         'Cost Optimization',
       ],
       dataService: 'infrastructure',

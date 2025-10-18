@@ -16,7 +16,7 @@ interface StatItem {
 export class StatsGridComponent {
   protected readonly stats = signal<StatItem[]>([
     { number: '5+', label: 'Years Experience' },
-    { number: '50+', label: 'Projects Completed' },
-    { number: '24/7', label: 'System Reliability' },
+    { number: '50+', label: 'Azure Projects' },
+    { number: '99.9%', label: 'Cloud Uptime' },
   ]);
 }

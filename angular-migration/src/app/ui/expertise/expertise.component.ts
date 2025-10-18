@@ -20,33 +20,33 @@ export class ExpertiseComponent {
       icon: 'bx-git-merge',
       title: 'CI/CD Pipelines',
       description:
-        'Expert in designing and implementing continuous integration and deployment workflows',
+        'Expert in Azure DevOps pipelines, GitHub Actions, and continuous deployment strategies',
     },
     {
       icon: 'bx-package',
       title: 'Infrastructure as Code',
-      description: 'Proficient with Terraform, Ansible, and cloud automation tools',
+      description: 'Azure ARM Templates, Bicep, Terraform for Azure cloud automation',
     },
     {
       icon: 'bx-cube',
       title: 'Containerization',
-      description: 'Docker, Kubernetes, and container orchestration expertise',
+      description: 'Azure Kubernetes Service (AKS), Azure Container Registry, Docker orchestration',
     },
     {
       icon: 'bx-line-chart',
       title: 'Monitoring & Observability',
       description:
-        'ELK stack, Prometheus, Grafana for comprehensive system monitoring',
+        'Azure Monitor, Application Insights, Log Analytics, and Prometheus for comprehensive monitoring',
     },
     {
       icon: 'bx-shield',
       title: 'Security & Compliance',
-      description: 'DevSecOps practices and security automation integration',
+      description: 'Azure Security Center, Key Vault, DevSecOps practices and compliance automation',
     },
     {
-      icon: 'bx-cloud',
-      title: 'Cloud Platforms',
-      description: 'AWS, Azure, GCP with multi-cloud architecture experience',
+      icon: 'bxl-microsoft',
+      title: 'Azure Cloud Platform',
+      description: 'Azure specialist with multi-cloud experience (AWS, GCP) and hybrid solutions',
     },
   ]);
 }

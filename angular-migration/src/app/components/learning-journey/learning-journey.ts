@@ -108,28 +108,29 @@ export class LearningJourneyComponent implements OnInit, OnDestroy {
     {
       id: 5,
       date: '2020 - 2024',
-      title: 'Career Evolution & Specialization',
-      description: 'Progressed through multiple companies, continuously refining skills and discovering my passion for DevOps practices. Each role brought new challenges and opportunities to master infrastructure automation, CI/CD pipelines, and cloud technologies.',
+      title: 'Career Evolution & Azure Specialization',
+      description: 'Progressed through multiple companies, discovering my passion for DevOps with a focus on Microsoft Azure cloud platform. Mastered Azure DevOps pipelines, Azure Kubernetes Service (AKS), and infrastructure automation using ARM Templates and Terraform on Azure.',
       iconClass: 'bx bx-rocket',
       isVisible: false,
       skills: [
-        { name: 'DevOps', icon: 'bx bx-cog' },
-        { name: 'Cloud Computing', icon: 'bx bx-cloud' },
-        { name: 'CI/CD', icon: 'bx bx-infinite' }
+        { name: 'Azure DevOps', icon: 'bxl bxl-microsoft' },
+        { name: 'Azure Cloud', icon: 'bx bx-cloud' },
+        { name: 'CI/CD', icon: 'bx bx-infinite' },
+        { name: 'Terraform', icon: 'bx bx-cog' }
       ]
     },
     {
       id: 6,
       date: 'Present',
-      title: 'Senior DevOps Engineer',
-      description: "Currently thriving as a Senior DevOps Engineer at EngineersCode, where I've been for over 4 years. Specializing in CI/CD pipeline architecture, infrastructure automation, and cloud-native solutions that drive business efficiency and innovation.",
+      title: 'Senior Azure DevOps Engineer',
+      description: "Currently thriving as a Senior DevOps Engineer at EngineersCode for over 4 years. Specializing in Azure cloud architecture, Azure DevOps pipelines, AKS orchestration, and infrastructure as code. Leading Azure migration projects and implementing cloud-native solutions that drive business efficiency.",
       iconClass: 'bx bx-trophy',
       isVisible: false,
       skills: [
-        { name: 'Senior DevOps', icon: 'bx bx-shield' },
-        { name: 'Infrastructure', icon: 'bx bx-chip' },
-        { name: 'Leadership', icon: 'bx bx-trending-up' },
-        { name: 'Automation', icon: 'bx bx-analyse' }
+        { name: 'Azure Expert', icon: 'bxl bxl-microsoft' },
+        { name: 'AKS/Docker', icon: 'bxl bxl-docker' },
+        { name: 'IaC (ARM/Bicep)', icon: 'bx bx-chip' },
+        { name: 'DevOps Lead', icon: 'bx bx-shield' }
       ]
     }
   ];

@@ -12,6 +12,11 @@ export const SOCIAL_LINKS: readonly SocialLinkData[] = [
     label: 'Email',
   },
   {
+    icon: 'bxl-microsoft',
+    url: 'https://learn.microsoft.com/en-us/azure/',
+    label: 'Azure',
+  },
+  {
     icon: 'bxl-github',
     url: 'https://github.com/dannybombastic',
     label: 'GitHub',

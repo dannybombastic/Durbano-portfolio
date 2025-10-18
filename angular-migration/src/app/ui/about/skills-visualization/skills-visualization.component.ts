@@ -19,7 +19,7 @@ export class SkillsVisualizationComponent {
     { icon: 'bxl-docker', name: 'Docker', class: 'skill-1' },
     { icon: 'bxl-kubernetes', name: 'Kubernetes', class: 'skill-2' },
     { icon: 'bxl-gitlab', name: 'GitLab', class: 'skill-3' },
-    { icon: 'bxl-aws', name: 'AWS', class: 'skill-4' },
+    { icon: 'bxl-microsoft', name: 'Azure', class: 'skill-4' },
     { icon: 'bx-code-alt', name: 'Terraform', class: 'skill-5' },
     { icon: 'bx-line-chart', name: 'Monitoring', class: 'skill-6' },
   ]);
