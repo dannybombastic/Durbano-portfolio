@@ -374,8 +374,13 @@
 
 @include responsive(sm, 'max') {
   .contact {
-    padding: 3rem 1rem;
+    padding: 3rem 0; // Eliminar padding lateral de la sección
     overflow-x: hidden; // Prevenir scroll horizontal
+  }
+
+  // Anular el padding del container en móvil
+  .container {
+    padding: 0 1rem; // Reducir padding del container
   }
 
   .section-header {
@@ -500,7 +505,12 @@
 
 @media (max-width: 400px) {
   .contact {
-    padding: 2.5rem 0.75rem;
+    padding: 2.5rem 0; // Eliminar padding lateral
+  }
+
+  // Anular el padding del container en pantallas muy pequeñas
+  .container {
+    padding: 0 0.75rem; // Reducir más el padding del container
   }
 
   .section-title {
