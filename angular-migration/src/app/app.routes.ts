@@ -8,7 +8,7 @@ export const routes: Routes = [
   },
   {
     path: 'learning-journey',
-    loadComponent: () => import('./components/learning-journey/learning-journey').then((m) => m.LearningJourneyComponent),
+    loadComponent: () => import('./pages/learning-journey/learning-journey').then((m) => m.LearningJourneyComponent),
     title: 'Learning Journey - Daniel Urbano',
   },
   {
