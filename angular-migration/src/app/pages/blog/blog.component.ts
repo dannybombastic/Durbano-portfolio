@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '@app/core/services/blog.service';
 import { MarkdownRendererComponent } from '@app/shared/components/markdown-renderer/markdown-renderer.component';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-blog',
@@ -31,6 +32,11 @@ export class BlogComponent implements OnInit {
   hasPosts = computed(() => this.posts().length > 0);
 
   ngOnInit(): void {
+    console.log('🔧 Environment Config:', {
+      production: environment.production,
+      webhookUrl: environment.n8nWebhookUrl,
+      timeout: environment.apiTimeout
+    });
     this.loadPosts();
   }
 
