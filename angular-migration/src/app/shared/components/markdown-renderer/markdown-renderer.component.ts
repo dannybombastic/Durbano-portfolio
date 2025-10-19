@@ -1,4 +1,4 @@
-import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, computed, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
 
@@ -9,7 +9,8 @@ import { marked } from 'marked';
     <div class="markdown-content" [innerHTML]="sanitizedHtml()"></div>
   `,
   styleUrl: './markdown-renderer.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None // Disable view encapsulation for innerHTML content
 })
 export class MarkdownRendererComponent {
   // Input signal for markdown content
