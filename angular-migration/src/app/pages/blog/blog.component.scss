@@ -383,10 +383,6 @@
 
 // Mobile Responsive
 @include responsive(md, 'max') {
-  .blog-content {
-    padding: 4rem 1rem; // Reduce side padding
-  }
-
   .blog-hero {
     padding: 6rem 1.5rem 3rem;
   }
@@ -402,12 +398,6 @@
   .blog-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 0; // Remove any extra padding
-  }
-
-  .blog-card {
-    width: 100%; // Full width
-    max-width: 100%; // Ensure full width
   }
 
   .blog-card-content {
@@ -420,10 +410,6 @@
 }
 
 @include responsive(sm, 'max') {
-  .blog-content {
-    padding: 3rem 0.75rem; // Minimal padding for mobile
-  }
-
   .blog-hero {
     padding: 5rem 1rem 2rem;
   }
@@ -432,33 +418,13 @@
     font-size: 2rem;
   }
 
-  .blog-grid {
-    gap: 1.25rem;
-    // Cards use almost full width with small margin
-    margin: 0;
-    padding: 0;
-  }
-
-  .blog-card {
-    width: 100%;
-    margin: 0 auto; // Center card
-  }
-
   .blog-card-image {
     height: 200px;
-  }
-
-  .blog-card-content {
-    padding: 1.25rem; // Slightly reduce padding on very small screens
   }
 
   .blog-card-meta {
     flex-direction: column;
     gap: 0.75rem;
-  }
-
-  .blog-card-title {
-    font-size: 1.375rem;
   }
 }
 
