@@ -6,7 +6,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://danielurbano.com/</loc>
+    <loc>https://durbanod.com/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Learning Journey Page -->
   <url>
-    <loc>https://danielurbano.com/learning-journey</loc>
+    <loc>https://durbanod.com/learning-journey</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Blog Page -->
   <url>
-    <loc>https://danielurbano.com/blog</loc>
+    <loc>https://durbanod.com/blog</loc>
     <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,35 +30,35 @@
 
   <!-- Sections (anchors for reference, though not all crawlers index these) -->
   <url>
-    <loc>https://danielurbano.com/#about</loc>
+    <loc>https://durbanod.com/#about</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://danielurbano.com/#expertise</loc>
+    <loc>https://durbanod.com/#expertise</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://danielurbano.com/#services</loc>
+    <loc>https://durbanod.com/#services</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://danielurbano.com/#portfolio</loc>
+    <loc>https://durbanod.com/#portfolio</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://danielurbano.com/#contact</loc>
+    <loc>https://durbanod.com/#contact</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

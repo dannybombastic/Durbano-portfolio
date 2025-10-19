@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   }
 
   private setupSeo(): void {
-    const baseUrl = 'https://danielurbano.com';
+    const baseUrl = 'https://durbanod.com';
     const seoConfig: SeoMetaTags = {
       title: 'Daniel Urbano - DevOps Engineer & Cloud Architect',
       description:
