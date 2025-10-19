@@ -1,0 +1,15 @@
+# robots.txt for Daniel Urbano Portfolio
+# https://danielurbano.com
+
+User-agent: *
+Allow: /
+Allow: /learning-journey
+
+# Sitemaps
+Sitemap: https://danielurbano.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1

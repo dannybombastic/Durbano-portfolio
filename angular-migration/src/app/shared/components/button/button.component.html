@@ -1,0 +1,24 @@
+@if (href()) {
+  <a
+    [href]="href()!"
+    [class]="'btn btn-' + variant() + ' btn-' + size()"
+    [class.btn-full-width]="fullWidth()"
+    [attr.aria-disabled]="disabled() ? 'true' : null">
+    @if (icon()) {
+      <i [class]="'bx ' + icon()"></i>
+    }
+    <ng-content></ng-content>
+  </a>
+} @else {
+  <button
+    [class]="'btn btn-' + variant() + ' btn-' + size()"
+    [class.btn-full-width]="fullWidth()"
+    [disabled]="disabled()"
+    (click)="handleClick($event)"
+    type="button">
+    @if (icon()) {
+      <i [class]="'bx ' + icon()"></i>
+    }
+    <ng-content></ng-content>
+  </button>
+}

@@ -1,0 +1,176 @@
+<section class="blog-hero">
+  <div class="container">
+    <h1 class="blog-title">Blog <span>Técnico</span></h1>
+    <p class="blog-subtitle">
+      Artículos sobre Azure, DevOps, Cloud Infrastructure y mejores prácticas
+    </p>
+  </div>
+</section>
+
+<section class="blog-content">
+  <div class="container">
+    
+    <!-- Loading State -->
+    @if (isLoading()) {
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Cargando publicaciones...</p>
+      </div>
+    }
+
+    <!-- Error State -->
+    @if (error() && !isLoading()) {
+      <div class="error-container">
+        <div class="error-icon">
+          <i class='bx bx-error-circle'></i>
+        </div>
+        <h3>Error al cargar las publicaciones</h3>
+        <p>{{ error() }}</p>
+        <button class="retry-button" (click)="retry()">
+          <i class='bx bx-refresh'></i>
+          Reintentar
+        </button>
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!isLoading() && !error() && !hasPosts()) {
+      <div class="empty-container">
+        <div class="empty-icon">
+          <i class='bx bx-file'></i>
+        </div>
+        <h3>No hay publicaciones disponibles</h3>
+        <p>Aún no hay artículos publicados. ¡Vuelve pronto!</p>
+        <a routerLink="/" class="back-home-button">
+          <i class='bx bx-home'></i>
+          Volver al inicio
+        </a>
+      </div>
+    }
+
+    <!-- Blog Posts Grid -->
+    @if (!isLoading() && !error() && hasPosts()) {
+      <div class="blog-grid">
+        @for (post of sortedPosts(); track post.id) {
+          <article class="blog-card">
+            
+            <!-- Cover Image -->
+            @if (post.coverImage) {
+              <div class="blog-card-image">
+                <img [src]="post.coverImage" [alt]="post.title" loading="lazy">
+              </div>
+            }
+            
+            <!-- Card Content -->
+            <div class="blog-card-content">
+              
+              <!-- Tags -->
+              @if (post.tags && post.tags.length > 0) {
+                <div class="blog-tags">
+                  @for (tag of post.tags; track tag) {
+                    <span class="blog-tag">{{ tag }}</span>
+                  }
+                </div>
+              }
+              
+              <!-- Title -->
+              <h2 class="blog-card-title">{{ post.title }}</h2>
+              
+              <!-- Description -->
+              <p class="blog-card-description">{{ post.description }}</p>
+              
+              <!-- Metadata -->
+              <div class="blog-card-meta">
+                <div class="meta-item">
+                  <i class='bx bx-user'></i>
+                  <span>{{ post.author }}</span>
+                </div>
+                <div class="meta-item">
+                  <i class='bx bx-calendar'></i>
+                  <span>{{ formatDate(post.createdAt) }}</span>
+                </div>
+                @if (post.readTime) {
+                  <div class="meta-item">
+                    <i class='bx bx-time'></i>
+                    <span>{{ getReadTimeText(post.readTime) }}</span>
+                  </div>
+                }
+              </div>
+              
+              <!-- Read More Link -->
+              <a [routerLink]="['/blog', post.slug]" class="read-more-link">
+                Leer artículo completo
+                <i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+
+      <!-- Pagination Controls -->
+      @if (hasPosts() && totalPages() > 1) {
+        <div class="pagination">
+          <button 
+            class="pagination-button"
+            [class.disabled]="!canGoPrevious()"
+            [disabled]="!canGoPrevious()"
+            (click)="previousPage()">
+            <i class='bx bx-chevron-left'></i>
+            Anterior
+          </button>
+
+          <div class="pagination-pages">
+            @if (visiblePages()[0] > 1) {
+              <button class="pagination-number" (click)="goToPage(1)">1</button>
+              @if (visiblePages()[0] > 2) {
+                <span class="pagination-ellipsis">...</span>
+              }
+            }
+
+            @for (page of visiblePages(); track page) {
+              <button 
+                class="pagination-number"
+                [class.active]="page === currentPage()"
+                (click)="goToPage(page)">
+                {{ page }}
+              </button>
+            }
+
+            @if (visiblePages()[visiblePages().length - 1] < totalPages()) {
+              @if (visiblePages()[visiblePages().length - 1] < totalPages() - 1) {
+                <span class="pagination-ellipsis">...</span>
+              }
+              <button class="pagination-number" (click)="goToPage(totalPages())">
+                {{ totalPages() }}
+              </button>
+            }
+          </div>
+
+          <button 
+            class="pagination-button"
+            [class.disabled]="!canGoNext()"
+            [disabled]="!canGoNext()"
+            (click)="nextPage()">
+            Siguiente
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+
+        <div class="pagination-info">
+          Mostrando {{ (currentPage() - 1) * pageSize() + 1 }} - 
+          {{ Math.min(currentPage() * pageSize(), totalPosts()) }} de {{ totalPosts() }} artículos
+        </div>
+      }
+    }
+
+    <!-- Back to Home -->
+    @if (hasPosts()) {
+      <div class="blog-footer">
+        <a routerLink="/" class="back-home-button">
+          <i class='bx bx-home'></i>
+          Volver al Portfolio
+        </a>
+      </div>
+    }
+  </div>
+</section>

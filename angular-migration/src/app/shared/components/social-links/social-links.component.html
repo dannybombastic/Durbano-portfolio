@@ -1,0 +1,12 @@
+<div class="social-links">
+  @for (link of links(); track link.url) {
+    <a 
+      [href]="link.url" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      [attr.aria-label]="link.label"
+      class="social-link">
+      <i [class]="'bx ' + link.icon"></i>
+    </a>
+  }
+</div>

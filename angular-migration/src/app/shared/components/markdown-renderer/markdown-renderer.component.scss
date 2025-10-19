@@ -1,0 +1,335 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.markdown-content {
+  color: $text-light;
+  line-height: 1.8;
+  font-size: 1.0625rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+
+  // Headings
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    line-height: 1.3;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; border-bottom: 2px solid rgba(102, 126, 234, 0.3); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1.125rem; }
+
+  // Paragraphs
+  p {
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  // Links
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: $transition-smooth;
+
+    &:hover {
+      color: #7d92f5; // Slightly lighter than primary-color
+      border-bottom-color: $primary-color;
+    }
+  }
+
+  // Lists
+  ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    color: rgba(255, 255, 255, 0.85);
+
+    li {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  // Code blocks - Terminal Style
+  pre {
+    background: linear-gradient(135deg, #1a1d23 0%, #252830 100%);
+    border: 1px solid rgba(102, 126, 234, 0.4);
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 100%;
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(102, 126, 234, 0.1) inset;
+    position: relative;
+    padding-top: 45px; // Space for terminal header
+
+    // Terminal header
+    &::before {
+      content: 'bash';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 60px;
+      height: 42px;
+      background: linear-gradient(180deg, #35383e 0%, #2a2d33 100%);
+      border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    // Terminal dots (macOS style)
+    &::after {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 14px;
+      width: 12px;
+      height: 12px;
+      background: #ff5f57;
+      border-radius: 50%;
+      box-shadow: 
+        20px 0 0 #febc2e,
+        40px 0 0 #28c840;
+      z-index: 2;
+    }
+
+    code {
+      display: block;
+      background: transparent;
+      padding: 1.5rem 1.75rem;
+      border: none;
+      color: #d4d4d4;
+      white-space: pre;
+      overflow-x: auto;
+      font-family: inherit;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      
+      // Default text color for all code
+      &.language-bash,
+      &.language-shell,
+      &.language-sh,
+      &.language-javascript,
+      &.language-typescript,
+      &.language-python,
+      &.language-json,
+      &.language-yaml,
+      &.language-azurecli {
+        color: #d4d4d4;
+      }
+    }
+
+    // Custom scrollbar for code blocks
+    code::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    code::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    code::-webkit-scrollbar-thumb {
+      background: rgba(102, 126, 234, 0.5);
+      border-radius: 4px;
+      
+      &:hover {
+        background: rgba(102, 126, 234, 0.7);
+      }
+    }
+  }
+
+  // Inline code
+  code {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    color: #7d92f5;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  // Blockquotes
+  blockquote {
+    border-left: 4px solid $primary-color;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+
+    // Info icon
+    &::before {
+      content: '💡';
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      background: var(--bg-color);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    // Warning style
+    &.warning {
+      border-left-color: #ffbd2e;
+      background: rgba(255, 189, 46, 0.1);
+
+      &::before {
+        content: '⚠️';
+      }
+    }
+
+    // Error style
+    &.error {
+      border-left-color: #ff5f56;
+      background: rgba(255, 95, 86, 0.1);
+
+      &::before {
+        content: '❌';
+      }
+    }
+
+    // Success style
+    &.success {
+      border-left-color: #27c93f;
+      background: rgba(39, 201, 63, 0.1);
+
+      &::before {
+        content: '✅';
+      }
+    }
+  }
+
+  // Tables
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+
+    th, td {
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background: rgba(102, 126, 234, 0.2);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  // Horizontal rule
+  hr {
+    border: none;
+    border-top: 2px solid rgba(102, 126, 234, 0.3);
+    margin: 2rem 0;
+  }
+
+  // Images
+  img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+    object-fit: contain;
+  }
+
+  // Strong and emphasis
+  strong, b {
+    color: white;
+    font-weight: 700;
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  // Task lists (GitHub style)
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+}
+
+// Mobile responsive
+@include responsive(sm, 'max') {
+  .markdown-content {
+    font-size: 1rem;
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    
+    pre {
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+
+    table {
+      font-size: 0.9rem;
+      
+      th, td {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+}
