@@ -2,13 +2,12 @@ import { Component, OnInit, computed, inject, ChangeDetectionStrategy } from '@a
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '@app/core/services/blog.service';
-import { MarkdownRendererComponent } from '@app/shared/components/markdown-renderer/markdown-renderer.component';
 import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule, RouterLink, MarkdownRendererComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
