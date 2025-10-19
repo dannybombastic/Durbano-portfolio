@@ -1,0 +1,82 @@
+<!-- Loading State -->
+@if (isLoading()) {
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Cargando artículo...</p>
+  </div>
+}
+
+<!-- Post Content -->
+@if (!isLoading() && hasPost() && post(); as currentPost) {
+  <article class="blog-post">
+    
+    <!-- Header -->
+    <header class="post-header">
+      <div class="container">
+        <a routerLink="/blog" class="back-link">
+          <i class='bx bx-arrow-back'></i>
+          Volver al Blog
+        </a>
+        
+        <!-- Tags -->
+        @if (currentPost.tags && currentPost.tags.length > 0) {
+          <div class="post-tags">
+            @for (tag of currentPost.tags; track tag) {
+              <span class="post-tag">{{ tag }}</span>
+            }
+          </div>
+        }
+        
+        <!-- Title -->
+        <h1 class="post-title">{{ currentPost.title }}</h1>
+        
+        <!-- Description -->
+        <p class="post-description">{{ currentPost.description }}</p>
+        
+        <!-- Metadata -->
+        <div class="post-meta">
+          <div class="meta-item">
+            <i class='bx bx-user'></i>
+            <span>{{ currentPost.author }}</span>
+          </div>
+          <div class="meta-item">
+            <i class='bx bx-calendar'></i>
+            <span>{{ formatDate(currentPost.publishedDate) }}</span>
+          </div>
+          @if (currentPost.readTime) {
+            <div class="meta-item">
+              <i class='bx bx-time'></i>
+              <span>{{ getReadTimeText(currentPost.readTime) }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </header>
+    
+    <!-- Cover Image -->
+    @if (currentPost.coverImage) {
+      <div class="post-cover">
+        <img [src]="currentPost.coverImage" [alt]="currentPost.title">
+      </div>
+    }
+    
+    <!-- Main Content -->
+    <div class="post-content">
+      <div class="container">
+        <div class="content-wrapper">
+          <app-markdown-renderer [content]="currentPost.content"></app-markdown-renderer>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="post-footer">
+      <div class="container">
+        <a routerLink="/blog" class="back-to-blog">
+          <i class='bx bx-arrow-back'></i>
+          Ver más artículos
+        </a>
+      </div>
+    </footer>
+  </article>
+}

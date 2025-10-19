@@ -30,12 +30,19 @@ export class NavComponent {
     { label: 'Expertise', href: '#expertise' },
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '#contact' },
     { label: 'Learning Journey', href: '/learning-journey' },
   ] as const;
 
   private readonly learningNavItems: readonly NavItem[] = [
     { label: 'Home', href: '/' },
+    { label: 'Blog', href: '/blog' },
+  ] as const;
+
+  private readonly blogNavItems: readonly NavItem[] = [
+    { label: 'Home', href: '/' },
+    { label: 'Learning Journey', href: '/learning-journey' },
   ] as const;
 
   // Convert router events to a signal
@@ -49,9 +56,12 @@ export class NavComponent {
 
   readonly navItems = computed(() => {
     const url = this.currentUrl();
-    return url?.includes('/learning-journey') 
-      ? this.learningNavItems 
-      : this.homeNavItems;
+    if (url?.includes('/learning-journey')) {
+      return this.learningNavItems;
+    } else if (url?.includes('/blog')) {
+      return this.blogNavItems;
+    }
+    return this.homeNavItems;
   });
 
   toggleMenu(): void {
