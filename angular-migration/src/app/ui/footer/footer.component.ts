@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SocialLinksComponent } from '@app/shared/components/social-links/social-links.component';
 import { SOCIAL_LINKS } from '@app/core/constants/portfolio-data';
 
 @Component({
   selector: 'app-footer',
-  imports: [SocialLinksComponent],
+  imports: [SocialLinksComponent, RouterLink],
   template: `
     <footer class="footer">
       <div class="container">
@@ -22,6 +23,8 @@ import { SOCIAL_LINKS } from '@app/core/constants/portfolio-data';
               <a href="#expertise">Expertise</a>
               <a href="#services">Services</a>
               <a href="#portfolio">Portfolio</a>
+              <a routerLink="/blog">Blog</a>
+              <a routerLink="/learning-journey">Learning Journey</a>
               <a href="#contact">Contact</a>
             </nav>
           </div>
