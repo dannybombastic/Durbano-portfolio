@@ -79,11 +79,6 @@
               <!-- Description -->
               <p class="blog-card-description">{{ post.description }}</p>
               
-              <!-- Markdown Content (read-only) -->
-              <div class="blog-card-preview">
-                <app-markdown-renderer [content]="post.content.substring(0, 300) + '...'"></app-markdown-renderer>
-              </div>
-              
               <!-- Metadata -->
               <div class="blog-card-meta">
                 <div class="meta-item">
