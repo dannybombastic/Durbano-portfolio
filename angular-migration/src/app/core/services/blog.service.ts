@@ -19,17 +19,30 @@ export class BlogService {
   // Signal for blog posts
   readonly posts = signal<readonly BlogPost[]>([]);
 
+  // Pagination metadata signals
+  readonly totalPosts = signal(0);
+  readonly currentPage = signal(1);
+  readonly pageSize = signal(10);
+  readonly totalPages = signal(0);
+
   /**
    * Fetch blog posts from n8n webhook
    */
-  fetchPosts(): Observable<readonly BlogPost[]> {
+  fetchPosts(page: number = 1, pageSize: number = 10): Observable<readonly BlogPost[]> {
     this.isLoading.set(true);
     this.error.set(null);
+    this.currentPage.set(page);
+    this.pageSize.set(pageSize);
 
-    return this.http.get<BlogPostsResponse>(environment.n8nWebhookUrl).pipe(
+    // Add pagination params to URL if needed by your n8n endpoint
+    const url = `${environment.n8nWebhookUrl}?page=${page}&pageSize=${pageSize}`;
+
+    return this.http.get<BlogPostsResponse>(url).pipe(
       timeout(environment.apiTimeout),
       map((response: BlogPostsResponse) => {
         this.posts.set(response.posts);
+        this.totalPosts.set(response.total);
+        this.totalPages.set(Math.ceil(response.total / response.pageSize));
         this.isLoading.set(false);
         return response.posts;
       }),
