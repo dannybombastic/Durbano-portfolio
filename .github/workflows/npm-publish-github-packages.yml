@@ -29,12 +29,15 @@ jobs:
           cd angular-migration
           npm ci
           
-      - name: Build Angular app
+      - name: Build Angular app (Production)
         run: |
           cd angular-migration
-          npm run build
-          echo "Build completed successfully"
+          npm run build -- --configuration production
+          echo "✅ Production build completed successfully"
+          echo "📦 Build output:"
           ls -la dist/daniel-urbano-portfolio/browser
+        env:
+          NODE_ENV: production
           
       - name: Prepare deployment files
         run: |
