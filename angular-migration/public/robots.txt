@@ -1,12 +1,12 @@
 # robots.txt for Daniel Urbano Portfolio
-# https://danielurbano.com
+# https://durbanod.com
 
 User-agent: *
 Allow: /
 Allow: /learning-journey
 
 # Sitemaps
-Sitemap: https://danielurbano.com/sitemap.xml
+Sitemap: https://durbanod.com/sitemap.xml
 
 # Disallow admin or private areas (if any)
 # Disallow: /admin/

@@ -2,6 +2,7 @@ import { Component, OnInit, computed, inject, ChangeDetectionStrategy } from '@a
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '@app/core/services/blog.service';
+import { SeoService } from '@app/core/services/seo.service';
 import { environment } from '@env/environment';
 
 @Component({
@@ -14,6 +15,7 @@ import { environment } from '@env/environment';
 })
 export class BlogComponent implements OnInit {
   private blogService = inject(BlogService);
+  private seoService = inject(SeoService);
   
   // Expose Math to template
   readonly Math = Math;
@@ -71,6 +73,39 @@ export class BlogComponent implements OnInit {
       webhookUrl: environment.n8nWebhookUrl,
       timeout: environment.apiTimeout
     });
+    
+    // Set SEO for blog list page
+    this.seoService.setMetaTags({
+      title: 'Blog Técnico | Daniel Urbano - Azure DevOps Engineer',
+      description: 'Artículos sobre Azure CLI, DevOps, Cloud Infrastructure y mejores prácticas de desarrollo en la nube',
+      canonical: 'https://durbanod.com/blog',
+      openGraph: {
+        title: 'Blog Técnico - Daniel Urbano',
+        type: 'website',
+        url: 'https://durbanod.com/blog',
+        image: 'https://durbanod.com/favicon.svg',
+        description: 'Artículos sobre Azure CLI, DevOps, Cloud Infrastructure y mejores prácticas'
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Blog Técnico - Daniel Urbano',
+        description: 'Artículos sobre Azure CLI, DevOps, Cloud Infrastructure y mejores prácticas',
+        image: 'https://durbanod.com/favicon.svg'
+      },
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: 'Daniel Urbano - Blog Técnico',
+        description: 'Artículos sobre Azure CLI, DevOps y Cloud Infrastructure',
+        url: 'https://durbanod.com/blog',
+        author: {
+          '@type': 'Person',
+          name: 'Daniel Urbano',
+          url: 'https://durbanod.com'
+        }
+      }
+    });
+    
     this.loadPosts();
   }
 
