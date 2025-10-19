@@ -15,6 +15,9 @@ import { environment } from '@env/environment';
 })
 export class BlogComponent implements OnInit {
   private blogService = inject(BlogService);
+  
+  // Expose Math to template
+  readonly Math = Math;
 
   // Expose service signals to template
   posts = this.blogService.posts;

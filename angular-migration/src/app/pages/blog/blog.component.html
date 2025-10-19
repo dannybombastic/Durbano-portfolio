@@ -111,6 +111,61 @@
           </article>
         }
       </div>
+
+      <!-- Pagination Controls -->
+      @if (hasPosts() && totalPages() > 1) {
+        <div class="pagination">
+          <button 
+            class="pagination-button"
+            [class.disabled]="!canGoPrevious()"
+            [disabled]="!canGoPrevious()"
+            (click)="previousPage()">
+            <i class='bx bx-chevron-left'></i>
+            Anterior
+          </button>
+
+          <div class="pagination-pages">
+            @if (visiblePages()[0] > 1) {
+              <button class="pagination-number" (click)="goToPage(1)">1</button>
+              @if (visiblePages()[0] > 2) {
+                <span class="pagination-ellipsis">...</span>
+              }
+            }
+
+            @for (page of visiblePages(); track page) {
+              <button 
+                class="pagination-number"
+                [class.active]="page === currentPage()"
+                (click)="goToPage(page)">
+                {{ page }}
+              </button>
+            }
+
+            @if (visiblePages()[visiblePages().length - 1] < totalPages()) {
+              @if (visiblePages()[visiblePages().length - 1] < totalPages() - 1) {
+                <span class="pagination-ellipsis">...</span>
+              }
+              <button class="pagination-number" (click)="goToPage(totalPages())">
+                {{ totalPages() }}
+              </button>
+            }
+          </div>
+
+          <button 
+            class="pagination-button"
+            [class.disabled]="!canGoNext()"
+            [disabled]="!canGoNext()"
+            (click)="nextPage()">
+            Siguiente
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+
+        <div class="pagination-info">
+          Mostrando {{ (currentPage() - 1) * pageSize() + 1 }} - 
+          {{ Math.min(currentPage() * pageSize(), totalPosts()) }} de {{ totalPosts() }} artículos
+        </div>
+      }
     }
 
     <!-- Back to Home -->

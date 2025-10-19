@@ -380,3 +380,141 @@
     gap: 0.75rem;
   }
 }
+
+// Pagination Styles
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding: 2rem 0;
+
+  .pagination-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    i {
+      font-size: 1.25rem;
+    }
+
+    &:hover:not(.disabled) {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  .pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pagination-number {
+    min-width: 45px;
+    height: 45px;
+    padding: 0.5rem;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    &:hover {
+      background: rgba(102, 126, 234, 0.2);
+      border-color: rgba(102, 126, 234, 0.5);
+    }
+
+    &.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+  }
+
+  .pagination-ellipsis {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    padding: 0 0.25rem;
+  }
+}
+
+.pagination-info {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+@include responsive(md, 'max') {
+  .pagination {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 3rem;
+
+    .pagination-button {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .pagination-number {
+      min-width: 40px;
+      height: 40px;
+      font-size: 0.95rem;
+    }
+  }
+
+  .pagination-info {
+    font-size: 0.9rem;
+  }
+}
+
+@include responsive(sm, 'max') {
+  .pagination {
+    .pagination-pages {
+      gap: 0.35rem;
+    }
+
+    .pagination-number {
+      min-width: 35px;
+      height: 35px;
+      font-size: 0.875rem;
+    }
+
+    .pagination-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+
+      span {
+        display: none; // Hide text on mobile, keep only icons
+      }
+    }
+  }
+
+  .pagination-info {
+    font-size: 0.85rem;
+  }
+}
