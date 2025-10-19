@@ -33,5 +33,5 @@ Por ahora puedes usar cualquier imagen profesional tuya y renombrarla a `Daniel_
 
 ## 📝 Notas
 - Angular sirve `/public/` como raíz estática
-- URL accesible: `https://danielurbano.dev/img/Daniel_Urbano.webp`
+- URL accesible: `https://danielurbano.com/img/Daniel_Urbano.webp`
 - Importante para compartir en redes sociales (Open Graph)
