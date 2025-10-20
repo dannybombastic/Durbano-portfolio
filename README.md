@@ -93,6 +93,7 @@ Proyectos destacados:
 ---
 
 ### 📚 **Blog** (`/blog`)
+
 Sistema de Technical Blog integrado con n8n:
 
 #### ✨ Características del Blog
