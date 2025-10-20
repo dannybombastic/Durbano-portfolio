@@ -93,7 +93,8 @@ Proyectos destacados:
 ---
 
 ### 📚 **Blog** (`/blog`)
-Sistema de blog técnico integrado con n8n:
+
+Sistema de Technical Blog integrado con n8n:
 
 #### ✨ Características del Blog
 - **CMS Headless:** Posts gestionados desde n8n Data Table
