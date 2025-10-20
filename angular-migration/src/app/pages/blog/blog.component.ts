@@ -76,11 +76,11 @@ export class BlogComponent implements OnInit {
     
     // Set SEO for blog list page
     this.seoService.setMetaTags({
-      title: 'Blog Técnico | Daniel Urbano - Azure DevOps Engineer',
+      title: 'Technical Blog | Daniel Urbano - Azure DevOps Engineer',
       description: 'Guides and Articles on Azure CLI, DevOps, Cloud Infrastructure, and Best Practices for Cloud Development',
       canonical: 'https://durbanod.com/blog',
       openGraph: {
-        title: 'Blog Técnico - Daniel Urbano',
+        title: 'Technical Blog - Daniel Urbano',
         type: 'website',
         url: 'https://durbanod.com/blog',
         image: 'https://durbanod.com/favicon.svg',
@@ -88,14 +88,14 @@ export class BlogComponent implements OnInit {
       },
       twitter: {
         card: 'summary_large_image',
-        title: 'Blog Técnico - Daniel Urbano',
+        title: 'Technical Blog - Daniel Urbano',
         description: 'Articles on Microsoft Azure, DevOps, Cloud Infrastructure, and IT Best Practices',
         image: 'https://durbanod.com/favicon.svg'
       },
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'Blog',
-        name: 'Daniel Urbano - Blog Técnico',
+        name: 'Daniel Urbano - Technical Blog',
         description: 'Articles on Microsoft Azure, DevOps, Cloud Infrastructure',
         url: 'https://durbanod.com/blog',
         author: {
