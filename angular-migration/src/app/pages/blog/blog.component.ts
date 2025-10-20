@@ -77,26 +77,26 @@ export class BlogComponent implements OnInit {
     // Set SEO for blog list page
     this.seoService.setMetaTags({
       title: 'Blog Técnico | Daniel Urbano - Azure DevOps Engineer',
-      description: 'Artículos sobre Azure CLI, DevOps, Cloud Infrastructure y mejores prácticas de desarrollo en la nube',
+      description: 'Guides and Articles on Azure CLI, DevOps, Cloud Infrastructure, and Best Practices for Cloud Development',
       canonical: 'https://durbanod.com/blog',
       openGraph: {
         title: 'Blog Técnico - Daniel Urbano',
         type: 'website',
         url: 'https://durbanod.com/blog',
         image: 'https://durbanod.com/favicon.svg',
-        description: 'Artículos sobre Azure CLI, DevOps, Cloud Infrastructure y mejores prácticas'
+        description: 'Articles on Microsoft Azure, DevOps, Cloud Infrastructure, and IT Best Practices'
       },
       twitter: {
         card: 'summary_large_image',
         title: 'Blog Técnico - Daniel Urbano',
-        description: 'Artículos sobre Azure CLI, DevOps, Cloud Infrastructure y mejores prácticas',
+        description: 'Articles on Microsoft Azure, DevOps, Cloud Infrastructure, and IT Best Practices',
         image: 'https://durbanod.com/favicon.svg'
       },
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'Blog',
         name: 'Daniel Urbano - Blog Técnico',
-        description: 'Artículos sobre Azure CLI, DevOps y Cloud Infrastructure',
+        description: 'Articles on Microsoft Azure, DevOps, Cloud Infrastructure',
         url: 'https://durbanod.com/blog',
         author: {
           '@type': 'Person',
