@@ -3,7 +3,6 @@
 
 User-agent: *
 Allow: /
-Allow: /learning-journey
 
 # Sitemaps
 Sitemap: https://durbanod.com/sitemap.xml
