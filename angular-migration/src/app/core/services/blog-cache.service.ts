@@ -38,7 +38,15 @@ export class BlogCacheService {
     try {
       const cachedDate = localStorage.getItem(this.CACHE_DATE_KEY);
       const currentDate = this.getCurrentDate();
-      return cachedDate === currentDate;
+      const isValid = cachedDate === currentDate;
+      
+      console.log('🔍 Cache validation:', {
+        cachedDate,
+        currentDate,
+        isValid
+      });
+      
+      return isValid;
     } catch (error) {
       console.error('Error checking cache validity:', error);
       return false;

@@ -42,6 +42,8 @@ export class BlogService {
    * @returns Observable of blog posts array
    */
   fetchPosts(page: number = 1, pageSize: number = 6): Observable<readonly BlogPost[]> {
+    console.log('📞 fetchPosts called with page:', page, 'pageSize:', pageSize);
+    
     this.isLoading.set(true);
     this.error.set(null);
     this.currentPage.set(page);
@@ -49,10 +51,11 @@ export class BlogService {
 
     // Step 1: Check for valid cache
     const cachedData = this.cacheService.getCachedPosts();
+    console.log('💭 Cache check result:', cachedData ? `Found ${cachedData.posts.length} posts` : 'No cache');
     
     if (cachedData && this.cacheService.isCacheValid()) {
       // Cache HIT: Return data from localStorage
-      console.log('✅ Using cached blog posts (no API call needed)');
+      console.log('✅ Cache HIT - Using cached blog posts (no API call needed)');
       this.posts.set(cachedData.posts);
       this.totalPosts.set(cachedData.total);
       this.totalPages.set(Math.ceil(cachedData.total / pageSize));
@@ -61,8 +64,9 @@ export class BlogService {
     }
 
     // Step 2: Cache MISS or EXPIRED: Fetch from API
-    console.log('🌐 Fetching fresh blog posts from API');
+    console.log('🌐 Cache MISS - Fetching fresh blog posts from API');
     const url = `${environment.n8nWebhookUrl}?page=${page}&pageSize=${pageSize}`;
+    console.log('🔗 API URL:', url);
 
     return this.http.get<BlogPostsResponse>(url).pipe(
       timeout(environment.apiTimeout),
