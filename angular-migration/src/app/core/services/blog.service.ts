@@ -42,8 +42,10 @@ export class BlogService {
    * @returns Observable of blog posts array
    */
   fetchPosts(page: number = 1, pageSize: number = 6): Observable<readonly BlogPost[]> {
+
     console.log('📞 fetchPosts called with page:', page, 'pageSize:', pageSize);
     
+
     this.isLoading.set(true);
     this.error.set(null);
     this.currentPage.set(page);
