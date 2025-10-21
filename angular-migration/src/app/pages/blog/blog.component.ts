@@ -139,7 +139,7 @@ export class BlogComponent implements OnInit {
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('es-ES', {
+    return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -148,6 +148,6 @@ export class BlogComponent implements OnInit {
 
   getReadTimeText(minutes?: number): string {
     if (!minutes) return '';
-    return `${minutes} min de lectura`;
+    return `${minutes} min read`;
   }
 }

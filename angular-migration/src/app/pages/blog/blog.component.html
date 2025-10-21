@@ -14,7 +14,7 @@
     @if (isLoading()) {
       <div class="loading-container">
         <div class="loading-spinner"></div>
-        <p>Cargando publicaciones...</p>
+        <p>Loading posts...</p>
       </div>
     }
 
@@ -24,11 +24,11 @@
         <div class="error-icon">
           <i class='bx bx-error-circle'></i>
         </div>
-        <h3>Error al cargar las publicaciones</h3>
+        <h3>Error loading posts</h3>
         <p>{{ error() }}</p>
         <button class="retry-button" (click)="retry()">
           <i class='bx bx-refresh'></i>
-          Reintentar
+          Retry
         </button>
       </div>
     }
@@ -39,11 +39,11 @@
         <div class="empty-icon">
           <i class='bx bx-file'></i>
         </div>
-        <h3>No hay publicaciones disponibles</h3>
-        <p>Aún no hay artículos publicados. ¡Vuelve pronto!</p>
+        <h3>No posts available</h3>
+        <p>There are no published articles yet. Come back soon!</p>
         <a routerLink="/" class="back-home-button">
           <i class='bx bx-home'></i>
-          Volver al inicio
+          Back to home
         </a>
       </div>
     }
@@ -82,10 +82,6 @@
               <!-- Metadata -->
               <div class="blog-card-meta">
                 <div class="meta-item">
-                  <i class='bx bx-user'></i>
-                  <span>{{ post.author }}</span>
-                </div>
-                <div class="meta-item">
                   <i class='bx bx-calendar'></i>
                   <span>{{ formatDate(post.createdAt) }}</span>
                 </div>
@@ -99,7 +95,7 @@
               
               <!-- Read More Link -->
               <a [routerLink]="['/blog', post.slug]" class="read-more-link">
-                Leer artículo completo
+                Read full article
                 <i class='bx bx-right-arrow-alt'></i>
               </a>
             </div>
@@ -116,7 +112,7 @@
             [disabled]="!canGoPrevious()"
             (click)="previousPage()">
             <i class='bx bx-chevron-left'></i>
-            Anterior
+            Previous
           </button>
 
           <div class="pagination-pages">
@@ -151,14 +147,14 @@
             [class.disabled]="!canGoNext()"
             [disabled]="!canGoNext()"
             (click)="nextPage()">
-            Siguiente
+            Next
             <i class='bx bx-chevron-right'></i>
           </button>
         </div>
 
         <div class="pagination-info">
-          Mostrando {{ (currentPage() - 1) * pageSize() + 1 }} - 
-          {{ Math.min(currentPage() * pageSize(), totalPosts()) }} de {{ totalPosts() }} artículos
+          Showing {{ (currentPage() - 1) * pageSize() + 1 }} - 
+          {{ Math.min(currentPage() * pageSize(), totalPosts()) }} of {{ totalPosts() }} articles
         </div>
       }
     }
@@ -168,7 +164,7 @@
       <div class="blog-footer">
         <a routerLink="/" class="back-home-button">
           <i class='bx bx-home'></i>
-          Volver al Portfolio
+          Back to Portfolio
         </a>
       </div>
     }
