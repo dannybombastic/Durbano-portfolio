@@ -111,9 +111,9 @@ export class BlogService {
       return of(paginatedPosts);
     }
 
-    // Fetch all posts from backend (returns array)
-    // Note: We request all posts by passing a large pageSize
-    const url = `${environment.n8nWebhookUrl}?page=1&pageSize=1000`;
+    // Fetch all posts from backend
+    // Note: Endpoint now returns all posts by default (no pagination params needed)
+    const url = environment.n8nWebhookUrl;
 
     return this.http.get<any>(url).pipe(
       timeout(environment.apiTimeout),
