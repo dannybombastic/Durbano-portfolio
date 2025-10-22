@@ -29,7 +29,8 @@ export class BlogService {
   private allPosts = signal<readonly BlogPost[]>([]);
 
   // LocalStorage keys
-  private readonly CACHE_KEY = 'blog_posts';
+  private readonly CACHE_PREFIX = 'blog_post_';
+  private readonly CACHE_INDEX_KEY = 'blog_posts_index';
   private readonly CACHE_DATE_KEY = 'blog_posts_date';
 
   /**
@@ -48,31 +49,66 @@ export class BlogService {
   }
 
   /**
-   * Get posts from localStorage
+   * Get all posts from localStorage (individual keys)
    */
   private getCachedPosts(): BlogPost[] | null {
     try {
-      if (!this.isCacheValid()) return null;
+      if (!this.isCacheValid()) {
+        console.log('⚠️  Cache expired, clearing old posts');
+        this.clearCache();
+        return null;
+      }
 
-      const cached = localStorage.getItem(this.CACHE_KEY);
-      if (!cached) return null;
+      const indexStr = localStorage.getItem(this.CACHE_INDEX_KEY);
+      if (!indexStr) return null;
 
-      return JSON.parse(cached) as BlogPost[];
-    } catch {
+      const postIds = JSON.parse(indexStr) as string[];
+      const posts: BlogPost[] = [];
+
+      for (const id of postIds) {
+        const postKey = `${this.CACHE_PREFIX}${id}`;
+        const postStr = localStorage.getItem(postKey);
+        
+        if (postStr) {
+          const post = JSON.parse(postStr) as BlogPost;
+          posts.push(post);
+        }
+      }
+
+      if (posts.length > 0) {
+        console.log(`✅ Loaded ${posts.length} posts from localStorage (individual keys)`);
+      }
+
+      return posts.length > 0 ? posts : null;
+    } catch (error) {
+      console.error('Error loading from localStorage:', error);
       return null;
     }
   }
 
   /**
-   * Save posts to localStorage
+   * Save posts to localStorage (one key per post)
    */
   private saveCacheToPosts(posts: BlogPost[]): void {
     try {
       const today = new Date().toLocaleDateString('en-US');
-      localStorage.setItem(this.CACHE_KEY, JSON.stringify(posts));
+      const postIds: string[] = [];
+
+      // Save each post individually
+      for (const post of posts) {
+        const postKey = `${this.CACHE_PREFIX}${post.id}`;
+        localStorage.setItem(postKey, JSON.stringify(post));
+        postIds.push(post.id);
+      }
+
+      // Save the index of post IDs
+      localStorage.setItem(this.CACHE_INDEX_KEY, JSON.stringify(postIds));
       localStorage.setItem(this.CACHE_DATE_KEY, today);
+
+      console.log(`💾 Saved ${posts.length} posts to localStorage (individual keys)`);
     } catch (error) {
-      console.warn('Failed to save posts to localStorage:', error);
+      console.error('❌ Failed to save posts to localStorage:', error);
+      console.error('   This might be due to localStorage size limit (~5-10MB)');
     }
   }
 
@@ -180,12 +216,12 @@ export class BlogService {
    * Get a single post by slug
    */
   getPostBySlug(slug: string): BlogPost | undefined {
-    // Try to find in current posts first
-    let post = this.posts().find(post => post.slug === slug);
+    // Try to find in all posts first
+    let post = this.allPosts().find(post => post.slug === slug);
     
-    // If not found, search in all posts cache
-    if (!post && this.allPosts().length > 0) {
-      post = this.allPosts().find(post => post.slug === slug);
+    // If not found in allPosts, try in paginated posts
+    if (!post && this.posts().length > 0) {
+      post = this.posts().find(post => post.slug === slug);
     }
     
     return post;
@@ -203,8 +239,22 @@ export class BlogService {
     
     // Clear localStorage
     try {
-      localStorage.removeItem(this.CACHE_KEY);
+      // Get the index of post IDs
+      const indexStr = localStorage.getItem(this.CACHE_INDEX_KEY);
+      if (indexStr) {
+        const postIds = JSON.parse(indexStr) as string[];
+        
+        // Remove each individual post
+        for (const id of postIds) {
+          const postKey = `${this.CACHE_PREFIX}${id}`;
+          localStorage.removeItem(postKey);
+        }
+      }
+      
+      // Remove index and date
+      localStorage.removeItem(this.CACHE_INDEX_KEY);
       localStorage.removeItem(this.CACHE_DATE_KEY);
+      
       console.log('✅ Cache cleared from localStorage');
     } catch (error) {
       console.warn('Failed to clear localStorage:', error);
