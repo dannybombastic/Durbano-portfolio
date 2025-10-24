@@ -39,6 +39,7 @@ EXPOSE 4000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
   CMD node -e "require('http').get('http://localhost:4000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
-# Start with ng serve (stable solution for Angular 20)
+# Start with ng serve in production mode (stable solution for Angular 20)
 # Note: This is the recommended approach until Angular fixes manifest loading in production builds
-CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--port", "4000", "--disable-host-check"]
+# Using --configuration=production to use environment.prod.ts
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--port", "4000", "--disable-host-check", "--configuration=production"]
