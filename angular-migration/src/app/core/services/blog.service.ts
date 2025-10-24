@@ -1,4 +1,5 @@
-import { Injectable, signal, inject } from '@angular/core';
+import { Injectable, signal, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, map, timeout, of } from 'rxjs';
 import { environment } from '@env/environment';
@@ -9,6 +10,8 @@ import { BlogPost } from '@app/core/models/blog.interface';
 })
 export class BlogService {
   private http = inject(HttpClient);
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
   
   // Signal for loading state
   readonly isLoading = signal(false);
@@ -37,6 +40,11 @@ export class BlogService {
    * Check if localStorage cache is valid
    */
   private isCacheValid(): boolean {
+    // Skip localStorage on server
+    if (!this.isBrowser) {
+      return false;
+    }
+    
     try {
       const cachedDate = localStorage.getItem(this.CACHE_DATE_KEY);
       if (!cachedDate) return false;
@@ -52,6 +60,11 @@ export class BlogService {
    * Get all posts from localStorage (individual keys)
    */
   private getCachedPosts(): BlogPost[] | null {
+    // Skip localStorage on server
+    if (!this.isBrowser) {
+      return null;
+    }
+    
     try {
       if (!this.isCacheValid()) {
         console.log('⚠️  Cache expired, clearing old posts');
@@ -90,6 +103,11 @@ export class BlogService {
    * Save posts to localStorage (one key per post)
    */
   private saveCacheToPosts(posts: BlogPost[]): void {
+    // Skip localStorage on server
+    if (!this.isBrowser) {
+      return;
+    }
+    
     try {
       const today = new Date().toLocaleDateString('en-US');
       const postIds: string[] = [];
@@ -236,6 +254,11 @@ export class BlogService {
     this.totalPosts.set(0);
     this.totalPages.set(0);
     this.currentPage.set(1);
+    
+    // Skip localStorage on server
+    if (!this.isBrowser) {
+      return;
+    }
     
     // Clear localStorage
     try {

@@ -30,25 +30,34 @@ jobs:
           cd angular-migration
           npm install --prefer-offline --no-audit
           
-      - name: Build Angular app (Production)
+      - name: Build Angular SSR app (Production)
         run: |
           cd angular-migration
-          npm run build
-          echo "✅ Production build completed successfully"
-          echo "📦 Build output:"
+          npm run build:ssr
+          echo "✅ SSR Production build completed successfully"
+          echo "📦 Browser build output:"
           ls -la dist/daniel-urbano-portfolio/browser
+          echo "📦 Server build output:"
+          ls -la dist/daniel-urbano-portfolio/server
         env:
           NODE_ENV: production
           
       - name: Prepare deployment files
         run: |
-          cd ${{ github.workspace }}
-          echo "Current directory contents:"
-          ls -la
-          echo "Angular build output:"
-          ls -la angular-migration/dist/daniel-urbano-portfolio/browser
+          cd angular-migration
+          echo "Creating deployment package..."
+          # Create a tarball with all necessary files for SSR
+          tar -czf ../deploy-ssr.tar.gz \
+            dist/ \
+            package*.json \
+            Dockerfile \
+            docker-compose.yml \
+            .dockerignore
+          cd ..
+          echo "✅ Deployment package created"
+          ls -lh deploy-ssr.tar.gz
 
-      - name: Deploy to server
+      - name: Deploy SSR to server
         uses: dannybombastic/ssh-scp-ssh-pipelines@v1.1.5
         with:
             host: ${{ secrets.REMOTE_HOST }}
@@ -57,16 +66,27 @@ jobs:
             pass: ${{ secrets.REMOTE_PASS }}
             connect_timeout: 30s
             first_ssh: |
-              echo "Cleaning old deployment..."
-              rm -rf /home/dannybombastic/durbanod/durbanod/*
-              echo "Cleanup completed"
+              echo "Preparing deployment directory..."
+              mkdir -p /home/dannybombastic/durbanod/portfolio-ssr
+              cd /home/dannybombastic/durbanod/portfolio-ssr
+              # Stop current container
+              docker compose down 2>/dev/null || true
+              # Clean old files
+              rm -rf dist/ package*.json Dockerfile docker-compose.yml .dockerignore
+              echo "✅ Cleanup completed"
             scp: |
-                "angular-migration/dist/daniel-urbano-portfolio/browser/*" => /home/dannybombastic/durbanod/durbanod
+                "deploy-ssr.tar.gz" => /home/dannybombastic/durbanod/portfolio-ssr/
             last_ssh: |
-                echo "Verifying deployment..."
-                ls -la /home/dannybombastic/durbanod/durbanod
-                echo "Rebuilding and restarting Docker container..."
-                cd /home/dannybombastic/durbanod
+                echo "Extracting deployment package..."
+                cd /home/dannybombastic/durbanod/portfolio-ssr
+                tar -xzf deploy-ssr.tar.gz
+                rm deploy-ssr.tar.gz
+                echo "✅ Files extracted"
+                ls -la
+                echo "Building and starting SSR Docker container..."
                 docker compose up -d --build
-                echo "Deployment completed successfully!"
+                echo "✅ Deployment completed successfully!"
                 docker compose ps
+                echo "🔍 Checking SSR server health..."
+                sleep 5
+                docker compose logs --tail=20

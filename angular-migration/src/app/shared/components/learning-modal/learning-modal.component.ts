@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy, effect, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ModalService } from '@app/core/services/modal.service';
 
 @Component({
@@ -42,9 +42,17 @@ import { ModalService } from '@app/core/services/modal.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LearningModalComponent {
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
+  
   constructor(public modalService: ModalService) {
-    // Handle escape key press
+    // Handle escape key press (only in browser)
     effect(() => {
+      // Skip event listeners on server
+      if (!this.isBrowser) {
+        return;
+      }
+      
       const handleEscape = (e: KeyboardEvent) => {
         if (e.key === 'Escape' && this.modalService.state().isOpen) {
           this.closeModal();
