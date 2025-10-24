@@ -46,13 +46,18 @@ jobs:
         run: |
           cd angular-migration
           echo "Creating deployment package..."
-          # Create a tarball with all necessary files for SSR
+          # Create a tarball with all necessary files for Docker build
+          # Note: We don't include dist/ because Docker will build it fresh
           tar -czf ../deploy-ssr.tar.gz \
-            dist/ \
+            src/ \
+            public/ \
             package*.json \
+            angular.json \
+            tsconfig*.json \
             Dockerfile \
             docker-compose.yml \
-            .dockerignore
+            .dockerignore \
+            .eslintrc.json
           cd ..
           echo "✅ Deployment package created"
           ls -lh deploy-ssr.tar.gz
@@ -71,8 +76,8 @@ jobs:
               cd /home/dannybombastic/durbanod/portfolio-ssr
               # Stop current container
               docker compose down 2>/dev/null || true
-              # Clean old files
-              rm -rf dist/ package*.json Dockerfile docker-compose.yml .dockerignore
+              # Clean old files (remove everything to avoid conflicts)
+              rm -rf src/ public/ dist/ package*.json angular.json tsconfig*.json Dockerfile docker-compose.yml .dockerignore .eslintrc.json
               echo "✅ Cleanup completed"
             scp: |
                 "deploy-ssr.tar.gz" => /home/dannybombastic/durbanod/portfolio-ssr/
