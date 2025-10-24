@@ -1,9 +1,9 @@
-# Node modules
+# Node modules - will be installed fresh
 node_modules/
 npm-debug.log
 yarn-error.log
 
-# Build outputs
+# Build outputs - will be built fresh in Docker
 dist/
 .angular/
 .cache/
@@ -28,3 +28,7 @@ coverage/
 # Logs
 logs/
 *.log
+
+# Git
+.git/
+.gitignore
