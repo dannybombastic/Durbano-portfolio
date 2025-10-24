@@ -298,11 +298,12 @@ export class BlogService {
   private handleError(error: HttpErrorResponse): void {
     let errorMessage = 'An error occurred while fetching blog posts.';
     
-    if (error.error instanceof ErrorEvent) {
+    // Check if ErrorEvent exists (browser only) and if error is an instance of it
+    if (this.isBrowser && typeof ErrorEvent !== 'undefined' && error.error instanceof ErrorEvent) {
       // Client-side error
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      // Server-side error
+      // Server-side error or network error
       errorMessage = `Server returned code ${error.status}: ${error.message}`;
     }
     
