@@ -46,8 +46,7 @@ jobs:
         run: |
           cd angular-migration
           echo "Creating deployment package..."
-          # Create a tarball with all necessary files for Docker build
-          # Note: We don't include dist/ because Docker will build it fresh
+          echo "Packaging source files for Docker build..."
           tar -czf ../deploy-ssr.tar.gz \
             src/ \
             public/ \
@@ -74,9 +73,9 @@ jobs:
               echo "Preparing deployment directory..."
               mkdir -p /home/dannybombastic/durbanod/portfolio-ssr
               cd /home/dannybombastic/durbanod/portfolio-ssr
-              # Stop current container
+              echo "Stopping current container..."
               docker compose down 2>/dev/null || true
-              # Clean old files (remove everything to avoid conflicts)
+              echo "Cleaning old files..."
               rm -rf src/ public/ dist/ package*.json angular.json tsconfig*.json Dockerfile docker-compose.yml .dockerignore .eslintrc.json
               echo "✅ Cleanup completed"
             scp: |
