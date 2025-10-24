@@ -6,7 +6,7 @@ services:
     container_name: durbanod-portfolio
     restart: unless-stopped
     ports:
-      - "4000:4000"
+      - "8383:4000"
     environment:
       - NODE_ENV=production
       - PORT=4000
