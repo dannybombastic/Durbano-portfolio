@@ -46,15 +46,18 @@ jobs:
         run: |
           cd angular-migration
           echo "Creating deployment package..."
-          echo "Packaging source files for Docker build..."
+          echo "Packaging source files and build artifacts for Docker deployment..."
           tar -czf ../deploy-ssr.tar.gz \
+            dist/ \
             src/ \
             public/ \
+            scripts/ \
             package*.json \
             angular.json \
             tsconfig*.json \
             Dockerfile \
             docker-compose.yml \
+            nginx.conf \
             .dockerignore \
             .eslintrc.json
           cd ..
@@ -73,10 +76,10 @@ jobs:
               echo "Preparing deployment directory..."
               mkdir -p /home/dannybombastic/durbanod/portfolio-ssr
               cd /home/dannybombastic/durbanod/portfolio-ssr
-              echo "Stopping current container..."
+              echo "Stopping current containers..."
               docker compose down 2>/dev/null || true
               echo "Cleaning old files..."
-              rm -rf src/ public/ dist/ package*.json angular.json tsconfig*.json Dockerfile docker-compose.yml .dockerignore .eslintrc.json
+              rm -rf src/ public/ dist/ scripts/ package*.json angular.json tsconfig*.json Dockerfile docker-compose.yml nginx.conf .dockerignore .eslintrc.json
               echo "✅ Cleanup completed"
             scp: |
                 "deploy-ssr.tar.gz" => /home/dannybombastic/durbanod/portfolio-ssr/
