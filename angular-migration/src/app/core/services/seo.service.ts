@@ -1,6 +1,6 @@
-import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 
 export interface SeoMetaTags {
   readonly title: string;
@@ -29,8 +29,6 @@ export class SeoService {
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
   private readonly document = inject(DOCUMENT);
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   setMetaTags(config: SeoMetaTags): void {
     // Set title
@@ -70,11 +68,6 @@ export class SeoService {
   }
 
   private setCanonicalURL(url: string): void {
-    // Only manipulate DOM in browser
-    if (!this.isBrowser) {
-      return;
-    }
-
     const head = this.document.getElementsByTagName('head')[0];
     let element: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
 
@@ -88,11 +81,6 @@ export class SeoService {
   }
 
   private setJsonLd(data: Record<string, unknown>): void {
-    // Only manipulate DOM in browser
-    if (!this.isBrowser) {
-      return;
-    }
-
     const head = this.document.getElementsByTagName('head')[0];
     let element: HTMLScriptElement | null = this.document.querySelector(
       'script[type="application/ld+json"]'
