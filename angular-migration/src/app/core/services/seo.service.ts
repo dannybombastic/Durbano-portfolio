@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 
 export interface SeoMetaTags {
   readonly title: string;
@@ -27,6 +28,7 @@ export interface SeoMetaTags {
 export class SeoService {
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
+  private readonly document = inject(DOCUMENT);
 
   setMetaTags(config: SeoMetaTags): void {
     // Set title
@@ -66,11 +68,11 @@ export class SeoService {
   }
 
   private setCanonicalURL(url: string): void {
-    const head = document.getElementsByTagName('head')[0];
-    let element: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
+    const head = this.document.getElementsByTagName('head')[0];
+    let element: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
 
     if (!element) {
-      element = document.createElement('link');
+      element = this.document.createElement('link');
       element.setAttribute('rel', 'canonical');
       head.appendChild(element);
     }
@@ -79,13 +81,13 @@ export class SeoService {
   }
 
   private setJsonLd(data: Record<string, unknown>): void {
-    const head = document.getElementsByTagName('head')[0];
-    let element: HTMLScriptElement | null = document.querySelector(
+    const head = this.document.getElementsByTagName('head')[0];
+    let element: HTMLScriptElement | null = this.document.querySelector(
       'script[type="application/ld+json"]'
     );
 
     if (!element) {
-      element = document.createElement('script');
+      element = this.document.createElement('script');
       element.setAttribute('type', 'application/ld+json');
       head.appendChild(element);
     }

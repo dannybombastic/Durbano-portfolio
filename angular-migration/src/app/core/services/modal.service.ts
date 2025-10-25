@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ResourceCategory } from '../interfaces/learning-resources.interface';
 
 export interface ModalState {
@@ -11,6 +12,10 @@ export interface ModalState {
   providedIn: 'root',
 })
 export class ModalService {
+  private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+  
   private modalState = signal<ModalState>({
     isOpen: false,
     type: null,
@@ -25,7 +30,11 @@ export class ModalService {
       type: 'learning',
       data: resources,
     });
-    document.body.style.overflow = 'hidden';
+    
+    // Only manipulate DOM in browser
+    if (this.isBrowser) {
+      this.document.body.style.overflow = 'hidden';
+    }
   }
 
   openChatModal(): void {
@@ -34,7 +43,11 @@ export class ModalService {
       type: 'chat',
       data: null,
     });
-    document.body.style.overflow = 'hidden';
+    
+    // Only manipulate DOM in browser
+    if (this.isBrowser) {
+      this.document.body.style.overflow = 'hidden';
+    }
   }
 
   closeModal(): void {
@@ -43,6 +56,10 @@ export class ModalService {
       type: null,
       data: null,
     });
-    document.body.style.overflow = 'auto';
+    
+    // Only manipulate DOM in browser
+    if (this.isBrowser) {
+      this.document.body.style.overflow = 'auto';
+    }
   }
 }

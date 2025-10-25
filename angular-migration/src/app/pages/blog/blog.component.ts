@@ -1,5 +1,5 @@
-import { Component, OnInit, computed, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, computed, inject, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '@app/core/services/blog.service';
 import { SeoService } from '@app/core/services/seo.service';
@@ -16,6 +16,8 @@ import { environment } from '@env/environment';
 export class BlogComponent implements OnInit {
   private blogService = inject(BlogService);
   private seoService = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
   
   // Expose Math to template
   readonly Math = Math;
@@ -116,8 +118,11 @@ export class BlogComponent implements OnInit {
   goToPage(page: number): void {
     if (page < 1 || page > this.totalPages()) return;
     this.loadPosts(page);
-    // Scroll to top of blog section
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Scroll to top of blog section (only in browser)
+    if (this.isBrowser) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   nextPage(): void {
